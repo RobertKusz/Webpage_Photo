@@ -1,0 +1,50 @@
+.sessions-container{
+      display: flex;
+      flex-direction: column;
+      background-color: #f1f1f1;
+}
+
+.session-by-type{
+    padding: 15px;
+}
+.session-name{
+    text-align: center;
+    font-size: 30px;
+    margin-top:30px;
+}
+.session-title{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+.session-image{
+    text-align:center;
+}
+
+.session-image > img{
+    width:95%;
+}
+
+@media (min-width: 992px) {
+    .sessions-container{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    .sessions-group{
+         display: flex;
+         flex-direction: row;
+
+    }
+    .sessions-by-type{
+        margin: 0 auto;
+        max-width: 1200px;
+        flex: 1;
+
+        padding: 15px;
+    }
+    .single-session{
+        width:100%;
+    }
+}

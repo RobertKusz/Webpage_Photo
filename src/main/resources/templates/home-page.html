@@ -13,35 +13,115 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script defer src="../static/scripts/common.js"></script>
-    <link rel="stylesheet" href="../static/styles/main.css">
+    <link rel="stylesheet" href="../style/style-menu.css">
+    <link rel="stylesheet" href="../style/style-sessions.css">
 </head>
 <body>
 <div class="container">
-    <ul class="menu">
-        <li class="menu-logo-container">
-            <a href="#">
-                logo
-            </a>
-        </li>
-        <li class="menu-toggle">
-            <a href="#">
-                <i id="toggle-icon" class="far fa-plus-square"></i>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="#">Strona główna</a>
-        </li>
-        <li class="menu-item">
-            <a href="#">O mnie</a>
-        </li>
-        <li class="menu-item">
-            <a href="#">Portfolio</a>
-        </li>
-        <li class="menu-item">
-            <a href="#">Kontakt</a>
-        </li>
+    <div class="first-background">
 
+    <nav class="menu">
+
+        <div class="menu-section left-section">
+            <div class="menu-item"><a href="#">FB</a></div>
+            <div class="menu-item"><a href="#">In</a></div>
+        </div>
+
+        <div class="menu-logo-container">
+            <a href="#">Robert Kusz logo</a>
+        </div>
+
+        <div  class="right-section">
+
+            <div class="menu-button" id="menu-button-left">
+                <a href="#">Menu</a>
+            </div>
+            <div class="menu-button" id="menu-button-right">
+                <a href="#">
+                    <i id="toggle-icon" class="fas fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    </div>
         <main class="main-content">
+            <div class="sessions-container">
+
+                <div class="sessions-by-type" style="">
+
+                    <div class="session-name">
+                        Sesje zdjeciowe 1
+                    </div>
+
+                    <div class="sessions-group">
+
+                        <div class="single-session">
+                            <div class="session-title">
+                                SESSION TITLE
+                            </div>
+                            <div class="session-image">
+                                <img src="../img/session-photo.jpg">
+                            </div>
+                        </div>
+
+                        <div class="single-session">
+                            <div class="session-title">
+                                SESSION TITLE
+                            </div>
+                            <div class="session-image">
+                                <img src="../img/session-photo.jpg">
+                            </div>
+                        </div>
+
+                        <div class="single-session">
+                            <div class="session-title">
+                                SESSION TITLE
+                            </div>
+                            <div class="session-image">
+                                <img src="../img/session-photo.jpg">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                    <div class="sessions-by-type" style="">
+                        <div class="session-name">
+                            Sesje zdjeciowe 2
+                        </div>
+
+                        <div class="sessions-group">
+
+                            <div class="single-session">
+                                <div class="session-title">
+                                    SESSION TITLE
+                                </div>
+                                <div class="session-image">
+                                    <img src="../img/session-photo.jpg">
+                                </div>
+                            </div>
+
+                            <div class="single-session">
+                                <div class="session-title">
+                                    SESSION TITLE
+                                </div>
+                                <div class="session-image">
+                                    <img src="../img/session-photo.jpg">
+                                </div>
+                            </div>
+
+                            <div class="single-session">
+                                <div class="session-title">
+                                    SESSION TITLE
+                                </div>
+                                <div class="session-image">
+                                    <img src="../img/session-photo.jpg">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
 
         </main>
         <footer class="footer">
@@ -51,7 +131,7 @@
 
 
 
-    </ul>
+
 </div>
 
 </body>

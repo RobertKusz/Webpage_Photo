@@ -1,0 +1,127 @@
+/* ============================================================
+   FotoClub – kompletny arkusz stylów
+   ============================================================
+   Założenia:
+   • Mobil-first (max-width: 991px), potem desktop ≥ 992 px
+   • Logo wyśrodkowane, sekcje menu po bokach
+   • Hamburger otwiera / zamyka menu na mobile
+   • Kolory: tło #424242, akccent #ffc107, tekst biały
+   • Czcionka: Roboto (300/400)
+   ============================================================ */
+
+/* ---------- Reset + bazowe ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;                 /* domyślny kolor tekstu */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #white;
+    font-family: cursive;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ---------- Szablon strony ---------- */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    width: 100%;
+    padding: 24px 0px;
+}
+
+/* ---------- Stopka ---------- */
+.footer {
+    padding: 8px 16px;
+    text-align: center;
+    font-size: .9rem;
+    background: rgba(0,0,0,.15);
+}
+
+/* ============================================================
+   MENU – WIDOK MOBILNY (domyślny)
+   ============================================================ */
+.menu{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
+
+}
+.first-background{
+    height: 100vh;
+    background-image: url("../img/background.webp");
+    background-repeat: no-repeat;
+    background-height:100px;
+    background-size: cover;
+}
+.left-section{
+    display: none;
+}
+.right-section{
+    display: flex;
+    flex: column;
+    padding:30px;
+    font-size:30px;
+}
+#toggle-icon{
+    color: #FFF;
+}
+
+#menu-button-left{
+
+    display: none;
+}
+.menu-toggle{
+    padding: 30px;
+    font-size: 30px;
+}
+.menu-item,
+.menu-logo-container{
+    padding: 30px;
+    font-size: 30px;
+}
+
+/* ============================================================
+   DESKTOP  ≥ 992 px
+   ============================================================ */
+@media (min-width: 992px) {
+    .right-section,
+    .left-section{
+        display: contents;
+    }
+    .left-section{
+        flex:1;
+    }
+    .menu-logo-container{
+        flex:3;
+        text-align:center;
+    }
+
+    #menu-button-left{
+        display: flex;
+        padding-right: 10px;
+    }
+
+    .right-section{
+        display: flex;
+        justify-content: end;
+    }
+
+}
