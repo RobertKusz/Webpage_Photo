@@ -1,0 +1,62 @@
+.about-me{
+    display: flex;
+    flex-direction:column;
+}
+.about-me-titles{
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction:column;
+}
+.about-me-profession{
+    margin: 60px auto 35px auto;
+    font-size: 35px;
+}
+.about-me-description{
+    margin: 0px auto 60px auto;
+}
+.about-me-img-container{
+    align-item:center;
+}
+.about-me-img{
+    display:block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.about-me-greeting-big{
+    font-size: 40px;
+    text-align:center;
+}
+.about-me-greeting-small{
+    text-align:center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.about-me-greeting-description{
+    text-align:justify;
+    padding: 0 30px 20px 30px;
+}
+.about-me-introduction-button{
+    display: flex;
+    margin:0 auto;
+}
+
+@media (min-width: 992px) {
+    .about-me-introduction{
+        display:flex;
+        flex-direction:row;
+    }
+    .about-me-img-container{
+        display:flex;
+        flex: 1;
+    }
+    .about-me-greeting-container{
+        display:flex;
+        flex:1;
+        flex-direction:column;
+        margin: auto 0;
+
+    }
+
+
+}
