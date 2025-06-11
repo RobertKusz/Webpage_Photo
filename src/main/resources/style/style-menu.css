@@ -25,6 +25,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #white;
     font-family: cursive;
+
 }
 
 a {
@@ -96,10 +97,20 @@ a {
     padding: 30px;
     font-size: 30px;
 }
+.fa-facebook,
+.fa-instagram{
+    color: white;
+}
 
-/* ============================================================
-   DESKTOP  ≥ 992 px
-   ============================================================ */
+.spacer{
+    background-image: url("../img/rolling_background1.jpg"); /* ścieżka do zdjęcia */
+    height: 40vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 @media (min-width: 992px) {
     .right-section,
     .left-section{
