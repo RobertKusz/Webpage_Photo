@@ -160,6 +160,44 @@ a {
 .hidden-menu li{
     padding: 15px;
 }
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #424242;
+    color: white;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    pointer-events: none; /* uniemożliwia kliknięcia, dopóki menu się nie pojawi */
+}
+
+.sticky-nav.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.sticky-nav-content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.sticky-nav-content a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+
+
 
 @media (min-width: 992px) {
     .right-section,

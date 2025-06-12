@@ -15,3 +15,17 @@ document.addEventListener("DOMContentLoaded", function () {
         hiddenMenuContainer.classList.remove("active");
     });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const stickyNav = document.getElementById("sticky-nav");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 200) {
+            stickyNav.classList.add("visible");
+        } else {
+            stickyNav.classList.remove("visible");
+        }
+    });
+});
