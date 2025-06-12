@@ -1,22 +1,17 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.getElementById("menu-toggle");
-    const leftSection = document.querySelector(".left-section");
-    const rightSection = document.querySelector(".right-section");
-    const icon = document.getElementById("toggle-icon");
+    const toggleButton = document.getElementById("toggle-icon");
+    const hiddenMenuContainer = document.querySelector(".hidden-menu-container");
+    const closeButton = document.querySelector(".hidden-menu li:last-child a");
 
-    toggleButton.addEventListener("click", () => {
-        leftSection.classList.toggle("active");
-        rightSection.classList.toggle("active");
+    // Otwieranie menu
+    toggleButton.addEventListener("click", function (e) {
+        e.preventDefault(); // zapobiega ewentualnemu przeładowaniu strony
+        hiddenMenuContainer.classList.add("active");
+    });
 
-        // Zmiana ikony (hamburger <-> X)
-        if (icon.classList.contains("fa-bars")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-        } else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-        }
+    // Zamykanie menu
+    closeButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        hiddenMenuContainer.classList.remove("active");
     });
 });
-</script>

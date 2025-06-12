@@ -111,6 +111,56 @@ a {
     background-repeat: no-repeat;
 }
 
+.dropdown-menu {
+    position: absolute;
+    top: 70px; /* dopasuj do wysokości paska nawigacyjnego */
+    right: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    margin: 10px 0;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+}
+
+
+.hidden-menu-container{
+    display:none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+.hidden-menu-container.active{
+    display:table;
+}
+
+.hidden-menu{
+    display: table-cell;
+    text-align: center; /* Poziome wyśrodkowanie */
+    vertical-align: middle;
+    font-size: 35px;
+    background-color: rgba(0,0,0,0.4);
+}
+.hidden-menu li{
+    padding: 15px;
+}
+
 @media (min-width: 992px) {
     .right-section,
     .left-section{
