@@ -1,3 +1,8 @@
 spring:
-  profile:
+  liquibase:
+    change-log: classpath:/db/changelog/master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  profiles:
     active: dev
