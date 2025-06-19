@@ -38,11 +38,13 @@ a {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
 }
 
 .main-content {
     flex: 1;
     width: 100%;
+    padding: 0 30px;
 }
 
 /* ---------- Stopka ---------- */
@@ -159,7 +161,13 @@ a {
     text-align: center; /* Poziome wyśrodkowanie */
     vertical-align: middle;
     font-size: 35px;
-    background-color: rgba(0,0,0,0.4);
+    background-image: linear-gradient(to right,
+         rgba(0, 0, 0, 0.4),
+         rgba(0, 0, 0, 0.8),
+         rgba(0, 0, 0, 0.8),
+         rgba(0, 0, 0, 0.4)
+     );
+
 }
 .hidden-menu li{
     padding: 15px;
@@ -198,10 +206,6 @@ a {
     font-weight: 400;
     font-size: 1rem;
 }
-
-
-
-
 
 @media (min-width: 992px) {
     .right-section,
