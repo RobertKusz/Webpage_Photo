@@ -6,4 +6,9 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
     <include file="0001_create_table_session.xml" relativeToChangelogFile="true"/>
+
+    <include file="../testdata/0001_sessions.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0002_photo.xml" relativeToChangelogFile="true"/>
+
+
 </databaseChangeLog>

@@ -4,19 +4,21 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
-    <changeSet id="0001-1" author="RobertKusz">
+    <changeSet id="0001" author="RobertKusz">
         <createTable tableName="session">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
+            <column name="session_type" type="VARCHAR(255)"/>
             <column name="title" type="VARCHAR(255)">
                 <constraints unique="true"/>
             </column>
             <column name="created_at" type="TIMESTAMP"/>
+            <column name="promoted" type="BOOLEAN"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="0001" author="RobertKusz">
+    <changeSet id="0002" author="RobertKusz">
         <createTable tableName="photo">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>

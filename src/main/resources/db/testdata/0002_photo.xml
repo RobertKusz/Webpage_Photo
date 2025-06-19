@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="0004" author="RobertKusz">
+        <insert tableName="photo">
+            <column name="id" valueNumeric="1"/>
+            <column name="filename" value="zdjecie1.jpg"/>
+            <column name="session_id" valueNumeric="1"/>
+        </insert>
+
+        <insert tableName="photo">
+            <column name="id" valueNumeric="2"/>
+            <column name="filename" value="zdjecie2.jpg"/>
+            <column name="session_id" valueNumeric="2"/>
+        </insert>
+
+        <insert tableName="photo">
+            <column name="id" valueNumeric="3"/>
+            <column name="filename" value="zdjecie3.jpg"/>
+            <column name="session_id" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="photo">
+            <column name="id" valueNumeric="4"/>
+            <column name="filename" value="zdjecie4.jpg"/>
+            <column name="session_id" valueNumeric="4"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id" valueNumeric="5"/>
+            <column name="filename" value="zdjecie5.jpg"/>
+            <column name="session_id" valueNumeric="5"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id" valueNumeric="6"/>
+            <column name="filename" value="zdjecie6.jpg"/>
+            <column name="session_id" valueNumeric="6"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id" valueNumeric="7"/>
+            <column name="filename" value="zdjecie7.jpg"/>
+            <column name="session_id" valueNumeric="7"/>
+        </insert>
+        <insert tableName="photo">
+            <column name="id" valueNumeric="8"/>
+            <column name="filename" value="zdjecie8.jpg"/>
+            <column name="session_id" valueNumeric="8"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

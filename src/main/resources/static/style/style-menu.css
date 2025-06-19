@@ -146,6 +146,10 @@ a {
     height: 100%;
     width: 100%;
 }
+.hidden-menu-container {
+    z-index: 2000;
+}
+
 .hidden-menu-container.active{
     display:table;
 }

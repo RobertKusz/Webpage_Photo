@@ -11,10 +11,22 @@ public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String sessionType;
     private String title;
     private LocalDateTime createdAt;
+    private boolean promoted;
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Photo> photos;
+
+
+    public boolean isPromoted() {
+        return promoted;
+    }
+
+    public void setPromoted(boolean promoted) {
+        this.promoted = promoted;
+    }
+
 
     @PrePersist
     public void prePersist() {
@@ -27,6 +39,13 @@ public class Session {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public String getSessionType() {
+        return sessionType;
+    }
+
+    public void setSessionType(String sessionType) {
+        this.sessionType = sessionType;
     }
 
     public String getTitle() {

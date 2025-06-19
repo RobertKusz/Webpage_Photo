@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="0004" author="RobertKusz">
+        <insert tableName="session">
+            <column name="id" valueNumeric="1"/>
+            <column name="session_type" value="landscape"/>
+            <column name="title" value="Sesja testowa 1"/>
+            <column name="created_at" valueDate="2024-01-01T10:00:00"/>
+            <column name="promoted" value="true"/>
+        </insert>
+
+        <insert tableName="session">
+            <column name="id" valueNumeric="2"/>
+            <column name="session_type" value="landscape"/>
+            <column name="title" value="Sesja testowa 2"/>
+            <column name="created_at" valueDate="2024-01-02T13:30:00"/>
+            <column name="promoted" value="true"/>
+        </insert>
+        <insert tableName="session">
+            <column name="id" valueNumeric="3"/>
+            <column name="session_type" value="landscape"/>
+            <column name="title" value="Sesja testowa 3"/>
+            <column name="created_at" valueDate="2024-01-01T10:00:00"/>
+            <column name="promoted" value="true"/>
+        </insert>
+
+        <insert tableName="session">
+            <column name="id" valueNumeric="4"/>
+            <column name="session_type" value="landscape"/>
+            <column name="title" value="Sesja testowa 4"/>
+            <column name="created_at" valueDate="2024-01-02T13:30:00"/>
+            <column name="promoted" value="false"/>
+        </insert>
+
+
+
+
+        <insert tableName="session">
+            <column name="id" valueNumeric="5"/>
+            <column name="session_type" value="weeding"/>
+            <column name="title" value="Sesja testowa 5"/>
+            <column name="created_at" valueDate="2024-01-01T10:00:00"/>
+            <column name="promoted" value="true"/>
+        </insert>
+
+        <insert tableName="session">
+            <column name="id" valueNumeric="6"/>
+            <column name="session_type" value="weeding"/>
+            <column name="title" value="Sesja testowa 6"/>
+            <column name="created_at" valueDate="2024-01-02T13:30:00"/>
+            <column name="promoted" value="true"/>
+        </insert>
+        <insert tableName="session">
+            <column name="id" valueNumeric="7"/>
+            <column name="session_type" value="weeding"/>
+            <column name="title" value="Sesja testowa 7"/>
+            <column name="created_at" valueDate="2024-01-01T10:00:00"/>
+            <column name="promoted" value="true"/>
+        </insert>
+
+        <insert tableName="session">
+            <column name="id" valueNumeric="8"/>
+            <column name="session_type" value="weeding"/>
+            <column name="title" value="Sesja testowa 8"/>
+            <column name="created_at" valueDate="2024-01-02T13:30:00"/>
+            <column name="promoted" value="false"/>
+        </insert>
+
+
+
+    </changeSet>
+</databaseChangeLog>
