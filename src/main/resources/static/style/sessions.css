@@ -61,8 +61,12 @@
     border-radius:8px;
 }
 .session-card:hover img {
-        transform: scale(1.05);
+    transform: scale(1.05);
     }
+.sessions-container{
+    padding: 0 30px;
+
+}
 
 @media (min-width: 992px) {
     .sessions-grid {

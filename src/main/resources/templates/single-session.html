@@ -63,26 +63,20 @@
             <li><a href="#" id="close-menu">X</a></li>
         </ul>
     </div>
-
-
-
     <main class="main-content">
-
-        <section class="sessions-header">
-            <h1>Sesje fotograficzne</h1>
-            <p>Zapraszam do zapoznania się z moim portfolio. Poniżej znajdziesz wybrane sesje zdjęciowe, które oddają emocje, światło i chwile, jakie uwieczniam.</p>
-        </section>
-
-        <div class="sessions-container">
-            <section class="sessions-grid">
-                <div class="session-card" th:each="sess: ${allSessions}">
-                    <a href="#" th:href="@{|/sesja/${sess.id}|}">
-                        <img th:src="@{'/img/' + ${sess.photo.filename}}" th:alt="${sess.title}">
-                    </a>
+        <div class="container" >
+            <div class="introducing-photo">
+                <img th:src="@{'/img/' + ${firstPhoto.filename}}">
+            </div>
+            <div class="session-title">
+                <p th:text="${session.title}"></p>
+            </div>
+            <div class="photos-gallery">
+                <div class="photo" th:each="photo, iterStat: ${photos}" th:if="${iterStat.index > 0}">
+                    <img th:src="@{'/img/' + ${photo.filename}}">
                 </div>
-            </section>
+            </div>
         </div>
-
     </main>
     <footer class="footer">
         <p>FotoClub 2025 <i class="fas fa-copyright"></i></p>

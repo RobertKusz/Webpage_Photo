@@ -1,7 +1,7 @@
 package org.photoclub.domain.session;
 
-import org.photoclub.domain.session.Session;
 import org.photoclub.domain.session.dto.SessionDto;
+import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 
 class SessionDtoMapper {
 
@@ -14,6 +14,10 @@ class SessionDtoMapper {
                 session.getPhotos().get(0));
     }
 
-
-
+    static SingleSessionGalleryDto mapToSingleSessionGallery(Session session){
+        return new SingleSessionGalleryDto(
+                session.getId(),
+                session.getTitle(),
+                session.getPhotos());
+    }
 }
