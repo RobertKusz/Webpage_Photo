@@ -1,11 +1,6 @@
 package org.photoclub.domain.session.dto;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.OneToMany;
 import org.photoclub.domain.photo.Photo;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 public class SessionDto {
     private Long id;

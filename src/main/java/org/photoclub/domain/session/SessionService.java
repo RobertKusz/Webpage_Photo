@@ -5,6 +5,7 @@ import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,7 +27,7 @@ public class SessionService {
         return sessionRepository.findAll().stream().map(SessionDtoMapper::map).collect(Collectors.toList());
     }
 
-    public SingleSessionGalleryDto getSessionById(int id) {
-        return SessionDtoMapper.mapToSingleSessionGallery(sessionRepository.findById(id));
+    public Optional <SingleSessionGalleryDto> getSessionById(Long id) {
+        return sessionRepository.findById(id).map(SessionDtoMapper::mapToSingleSessionGallery);
     }
 }

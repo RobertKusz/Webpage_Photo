@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" th:href="@{/style/style-menu.css}">
     <link rel="stylesheet" th:href="@{/style/style-sessions.css}">
+    <link rel="stylesheet" th:href="@{/style/style-single-session.css}">
     <link rel="stylesheet" th:href="@{/style/style-about-me.css}">
     <link rel="stylesheet" th:href="@{/style/sessions.css}">
 
@@ -64,12 +65,12 @@
         </ul>
     </div>
     <main class="main-content">
-        <div class="container" >
+        <div class="photo-container">
             <div class="introducing-photo">
                 <img th:src="@{'/img/' + ${firstPhoto.filename}}">
             </div>
             <div class="session-title">
-                <p th:text="${session.title}"></p>
+                <p th:text="${sessionTitle}"></p>
             </div>
             <div class="photos-gallery">
                 <div class="photo" th:each="photo, iterStat: ${photos}" th:if="${iterStat.index > 0}">
