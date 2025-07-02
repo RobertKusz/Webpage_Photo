@@ -1,0 +1,26 @@
+.admin-menu {
+    display: flex;
+    flex: 1;
+    align-self: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+
+}
+.admin-menu-button{
+    padding:10px;
+    border-bottom: 1px black solid;
+    background: light-gray;
+
+}
+.admin-menu-button:hover{
+    background-color: rgba(200,200,200,0.6);
+    cursor: pointer;
+}
+
+.admin-heading{
+    padding:10px;
+    border-bottom: 1px black solid;
+    text-align: center;
+}

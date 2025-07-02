@@ -9,4 +9,7 @@ public class PhotoApplication {
         SpringApplication.run(PhotoApplication.class, args);
     }
 
+
+    //dodać logowanie administratora i potem panel admina
+
 }
