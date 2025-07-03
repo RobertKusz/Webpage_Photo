@@ -1,70 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org">
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>FotoClub</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
-    <script defer th:src="@{/scripts/scripts.js}"></script>
-
-    <link rel="stylesheet" th:href="@{/style/style-menu.css}">
-    <link rel="stylesheet" th:href="@{/style/style-sessions.css}">
     <link rel="stylesheet" th:href="@{/style/style-single-session.css}">
-    <link rel="stylesheet" th:href="@{/style/style-about-me.css}">
-    <link rel="stylesheet" th:href="@{/style/sessions.css}">
-
 </head>
 <body>
-<div class="container">
-    <div class="first-background" style="height: auto;">
 
-        <nav class="menu">
-
-            <div class="menu-section left-section">
-                <div class="menu-item"><a href="#"><i class="fa-brands fa-facebook"></i></a></div>
-                <div class="menu-item"><a href="#"><i class="fa-brands fa-instagram"></i></a></div>
-            </div>
-
-            <div class="menu-logo-container">
-                <a href="#">Robert Kusz logo</a>
-            </div>
-
-            <div  class="right-section">
-
-                <div class="menu-button" id="menu-button-right">
-                    <a href="#">
-                        <i id="toggle-icon" class="fas fa-bars"></i>
-                    </a>
-                </div>
-            </div>
-
-        </nav>
-        <nav class="sticky-nav" id="sticky-nav">
-            <div class="sticky-nav-content">
-                <a href="http://localhost:8080/">Strona główna</a>
-                <a th:href="@{/sesje}">Sesje</a>
-                <a href="@{/o_mnie}">O mnie</a>
-                <a href="@{/kontakt}">Kontakt</a>
-            </div>
-        </nav>
-    </div>
-    <div class="hidden-menu-container">
-        <ul class="hidden-menu">
-            <li><a href="#">Strona główna</a></li>
-            <li><a href="#">O mnie</a></li>
-            <li><a href="#">Sesje</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#" id="close-menu">X</a></li>
-        </ul>
-    </div>
-    <main class="main-content">
+    <main class="main-content" layout:fragment="content">
         <div class="photo-container">
             <div class="introducing-photo">
                 <img th:src="@{'/img/' + ${firstPhoto.filename}}">
@@ -79,10 +21,7 @@
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <p>FotoClub 2025 <i class="fas fa-copyright"></i></p>
-    </footer>
-</div>
+
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 <!--https://fotoreportazslubny.com/-->
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>FotoClub</title>
@@ -19,25 +18,33 @@
     <link rel="stylesheet" th:href="@{/style/style-menu.css}">
     <link rel="stylesheet" th:href="@{/style/style-sessions.css}">
     <link rel="stylesheet" th:href="@{/style/style-about-me.css}">
+    <link rel="stylesheet" th:href="@{/style/sessions.css}">
+
 </head>
 <body>
 <div class="container">
-    <div class="first-background">
+    <div class="first-background" style="height: auto;">
+
         <nav class="menu">
+
             <div class="menu-section left-section">
                 <div class="menu-item"><a href="#"><i class="fa-brands fa-facebook"></i></a></div>
                 <div class="menu-item"><a href="#"><i class="fa-brands fa-instagram"></i></a></div>
             </div>
+
             <div class="menu-logo-container">
                 <a href="#">Robert Kusz logo</a>
             </div>
+
             <div  class="right-section">
+
                 <div class="menu-button" id="menu-button-right">
                     <a href="#">
                         <i id="toggle-icon" class="fas fa-bars"></i>
                     </a>
                 </div>
             </div>
+
         </nav>
         <nav class="sticky-nav" id="sticky-nav">
             <div class="sticky-nav-content">
@@ -47,7 +54,6 @@
                 <a href="@{/kontakt}">Kontakt</a>
             </div>
         </nav>
-
     </div>
     <div class="hidden-menu-container">
         <ul class="hidden-menu">

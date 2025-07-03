@@ -9,4 +9,7 @@ public class AdminController {
     public String getAdminPanel(){
         return "admin/admin";
     }
+    public String getAddingSessionPanel(){
+        return "admin/add-session";
+    }
 }
