@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
+    public static final String NOTIFICATION_ATTRIBUTE = "";
+
     @GetMapping("/admin")
     public String getAdminPanel(){
         return "admin/admin";
-    }
-    public String getAddingSessionPanel(){
-        return "admin/add-session";
     }
 }

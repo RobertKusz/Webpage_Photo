@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="pl"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+      layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+<!--Przerobić formularz żeby działał z sessionToSave i poprawić klase w kontrolerze-->
+
+
 <main class="main-content" layout:fragment="content">
+    <form action="" method="post" enctype="multipart/form-data" class="mc-form" th:object="${session}">
+        <label for="title">Tytuł</label>
+        <input type="text" id="title" placeholder="Przykładowy tytuł" th:field="*{title}">
+
+        <label for="sessionType">Tytuł oryginalny</label>
+        <input type="text" id="sessionType" placeholder="Przykładowy typ" th:field="*{sessionType}">
+
+        <label for="createdAt">Data utworzenia</label>
+        <input type="datetime-local" id="createdAt" th:field="*{createdAt}">
+
+        <label for="promoted">Promowanie na stronie głównej?</label>
+        <input id="promoted" type="checkbox" th:field="*{promoted}">
+
+        <label for="photos">Plakat</label>
+        <input type="file" id="photos" th:field="*{photos}" accept="image/png, image/jpeg">
+
+        <button type="submit">Dodaj</button>
+    </form>
+
 </main>
 </body>
 </html>

@@ -37,4 +37,13 @@
                                  referencedColumnNames="id"
                                  constraintName="fk_photo_session"/>
     </changeSet>
+
+    <changeSet id="0005" author="RobertKusz">
+        <sql>ALTER TABLE session ALTER COLUMN id RESTART WITH 100</sql>
+    </changeSet>
+    <changeSet id="0006" author="RobertKusz">
+        <sql>ALTER TABLE photo ALTER COLUMN id RESTART WITH 100</sql>
+    </changeSet>
+
+
 </databaseChangeLog>
