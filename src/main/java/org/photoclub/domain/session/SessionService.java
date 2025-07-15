@@ -65,4 +65,8 @@ public class SessionService {
         sessionRepository.save(session);
     }
 
+    public void deleteById(Long id){
+        sessionRepository.deleteById(id);
+    }
+
 }

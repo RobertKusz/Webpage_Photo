@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link rel="stylesheet" th:href="@{/style/admin-edit-session-style.css}">
+</head>
+<body>
+
+<main class="main-content" layout:fragment="content">
+    <div class="session-gallery-container">
+<!--        <p th:text="${session}">[brak obiektu session]</p>-->
+<!--        <p th:text="${session.id}">[brak obiektu session]</p>-->
+<!--        <p th:text="${session.getClass().getName()}"></p>-->
+
+
+        <h2 th:text="'Galeria zdjęć: ' + ${sess.title}">Galeria zdjęć</h2>
+
+        <div class="gallery-grid">
+            <div class="gallery-item" th:each="photo : ${sess.photos}">
+                <img th:src="@{'/img/' + ${photo.filename}}" alt="Zdjęcie sesji">
+                <div class="photo-actions">
+                    <!-- Ustaw jako główne -->
+                    <form th:action="@{/admin/edytuj_sesje/{sessionId}/main-photo(sessionId=${sess.id})}" method="post">
+                        <input type="hidden" name="photoId" th:value="${photo.id}" />
+                        <button type="submit" title="Ustaw jako główne">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+                    </form>
+                    <!-- Usuń zdjęcie -->
+                    <form th:action="@{/admin/edytuj_sesje/{sessionId}/delete-photo(sessionId=${sess.id})}" method="post"
+                          onsubmit="return confirm('Na pewno usunąć to zdjęcie?')">
+                        <input type="hidden" name="photoId" th:value="${photo.id}" />
+                        <button type="submit" title="Usuń zdjęcie">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <a th:href="@{/admin/panel}" class="back-button">← Powrót do panelu</a>
+    </div>
+</main>
+
+</body>
+</html>
