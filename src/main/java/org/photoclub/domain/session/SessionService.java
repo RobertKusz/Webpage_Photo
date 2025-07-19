@@ -1,6 +1,7 @@
 package org.photoclub.domain.session;
 
 import org.photoclub.domain.photo.Photo;
+import org.photoclub.domain.photo.PhotoRepository;
 import org.photoclub.domain.session.dto.SessionDto;
 import org.photoclub.domain.session.dto.SessionSaveDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
@@ -17,10 +18,12 @@ import java.util.stream.Collectors;
 public class SessionService {
     private final SessionRepository sessionRepository;
     private final FileStorageService fileStorageService;
+    private final PhotoRepository photoRepository;
 
-    public SessionService(SessionRepository sessionRepository, FileStorageService fileStorageService) {
+    public SessionService(SessionRepository sessionRepository, FileStorageService fileStorageService, PhotoRepository photoRepository) {
         this.sessionRepository = sessionRepository;
         this.fileStorageService = fileStorageService;
+        this.photoRepository = photoRepository;
     }
 
     public List<SessionDto> findAllPromotedSessionsByType(String type){
@@ -60,13 +63,16 @@ public class SessionService {
                 }
             }
         }
-
         session.setPhotos(photoList);
         sessionRepository.save(session);
     }
 
     public void deleteById(Long id){
         sessionRepository.deleteById(id);
+    }
+
+    public void deletePhoto(Long photoId){
+        photoRepository.deleteById(photoId);
     }
 
 }

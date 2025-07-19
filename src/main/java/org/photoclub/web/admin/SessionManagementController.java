@@ -61,13 +61,13 @@ public class SessionManagementController {
     @PostMapping("/admin/edytuj_sesje/{sessionId}/main-photo")
     public String setMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
 //        sessionService.setMainPhoto(sessionId, photoId);
-        return "redirect:/admin/edytuj-sesje/" + sessionId;
+        return "redirect:/admin/edytuj_sesje/" + sessionId;
     }
 
     @PostMapping("/admin/edytuj_sesje/{sessionId}/delete-photo")
     public String deletePhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
-//        sessionService.deletePhoto(sessionId, photoId);
-        return "redirect:/admin/edytuj-sesje/" + sessionId;
+        sessionService.deletePhoto(photoId);
+        return "redirect:/admin/edytuj_sesje/" + sessionId;
     }
 
 
