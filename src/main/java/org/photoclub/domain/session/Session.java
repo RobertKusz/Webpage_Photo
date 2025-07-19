@@ -17,6 +17,9 @@ public class Session {
     private boolean promoted;
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Photo> photos;
+    @OneToOne
+    @JoinColumn(name = "main_photo")
+    private Photo mainPhoto;
 
 
     public boolean isPromoted() {
@@ -70,5 +73,13 @@ public class Session {
 
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
+    }
+
+    public Photo getMainPhoto() {
+        return mainPhoto;
+    }
+
+    public void setMainPhoto(Photo mainPhoto) {
+        this.mainPhoto = mainPhoto;
     }
 }

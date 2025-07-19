@@ -91,9 +91,7 @@
 
 
 
-
             <div class="promoted-sessions-container">
-
                 <div class="sessions-by-type">
                     <div class="session-name">
                         Weeding
@@ -106,7 +104,7 @@
                                     SESSION TITLE
                                 </div>
                                 <div class="session-image">
-                                    <img th:src="@{'/img/' + ${weedingSession.photo.filename}}" />
+                                    <img th:src="@{'/img/' + ${weedingSession.mainPhoto.filename}}" />
                                 </div>
                             </a>
                         </div>
@@ -124,7 +122,7 @@
                                     SESSION TITLE
                                 </div>
                                 <div class="session-image">
-                                    <img th:src="@{'/img/' + ${landscapeSession.photo.filename}}"/>
+                                    <img th:src="@{'/img/' + ${landscapeSession.mainPhoto.filename}}"/>
                                 </div>
                             </a>
                         </div>

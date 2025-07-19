@@ -15,7 +15,7 @@
                 <p th:text="${sessionTitle}"></p>
             </div>
             <div class="photos-gallery">
-                <div class="photo" th:each="photo, iterStat: ${photos}" th:if="${iterStat.index > 0}">
+                <div class="photo" th:each="photo, iterStat: ${photos}">
                     <img th:src="@{'/img/' + ${photo.filename}}">
                 </div>
             </div>

@@ -7,14 +7,14 @@ public class SessionDto {
     private String title;
     private String sessionType;
     private boolean promoted;
-    private Photo photo;
+    private Photo mainPhoto;
 
     public SessionDto(Long id, String title, String sessionType, boolean promoted, Photo photo) {
         this.id = id;
         this.title = title;
         this.sessionType = sessionType;
         this.promoted = promoted;
-        this.photo = photo;
+        this.mainPhoto = photo;
     }
 
     public Long getId() {
@@ -49,12 +49,12 @@ public class SessionDto {
         this.promoted = promoted;
     }
 
-    public Photo getPhoto() {
-        return photo;
+    public Photo getMainPhoto() {
+        return mainPhoto;
     }
 
-    public void setPhoto(Photo photo) {
-        this.photo = photo;
+    public void setMainPhoto(Photo mainPhoto) {
+        this.mainPhoto = mainPhoto;
     }
 }
 

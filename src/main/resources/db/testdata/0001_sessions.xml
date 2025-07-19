@@ -12,6 +12,7 @@
             <column name="title" value="Sesja testowa 1"/>
             <column name="created_at" valueDate="2024-01-01T10:00:00"/>
             <column name="promoted" value="true"/>
+            <column name="main_photo" value="null"/>
         </insert>
 
         <insert tableName="session">
@@ -20,6 +21,7 @@
             <column name="title" value="Sesja testowa 2"/>
             <column name="created_at" valueDate="2024-01-02T13:30:00"/>
             <column name="promoted" value="true"/>
+            <column name="main_photo" value="null"/>
         </insert>
         <insert tableName="session">
             <column name="id" valueNumeric="3"/>
@@ -27,6 +29,7 @@
             <column name="title" value="Sesja testowa 3"/>
             <column name="created_at" valueDate="2024-01-01T10:00:00"/>
             <column name="promoted" value="true"/>
+            <column name="main_photo" value="null"/>
         </insert>
 
         <insert tableName="session">
@@ -35,6 +38,7 @@
             <column name="title" value="Sesja testowa 4"/>
             <column name="created_at" valueDate="2024-01-02T13:30:00"/>
             <column name="promoted" value="false"/>
+            <column name="main_photo" value="null"/>
         </insert>
 
 
@@ -46,6 +50,7 @@
             <column name="title" value="Sesja testowa 5"/>
             <column name="created_at" valueDate="2024-01-01T10:00:00"/>
             <column name="promoted" value="true"/>
+            <column name="main_photo" value="null"/>
         </insert>
 
         <insert tableName="session">
@@ -54,6 +59,7 @@
             <column name="title" value="Sesja testowa 6"/>
             <column name="created_at" valueDate="2024-01-02T13:30:00"/>
             <column name="promoted" value="true"/>
+            <column name="main_photo" value="null"/>
         </insert>
         <insert tableName="session">
             <column name="id" valueNumeric="7"/>
@@ -61,6 +67,7 @@
             <column name="title" value="Sesja testowa 7"/>
             <column name="created_at" valueDate="2024-01-01T10:00:00"/>
             <column name="promoted" value="true"/>
+            <column name="main_photo" value="null"/>
         </insert>
 
         <insert tableName="session">
@@ -69,6 +76,7 @@
             <column name="title" value="Sesja testowa 8"/>
             <column name="created_at" valueDate="2024-01-02T13:30:00"/>
             <column name="promoted" value="false"/>
+            <column name="main_photo" value="null"/>
         </insert>
 
 

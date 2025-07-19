@@ -13,7 +13,7 @@
             <div class="single-session-list" th:each="sess: ${sessions}">
                 <div class="single-session-content">
                     <a th:href="|/sesja/${sess.id}|">
-                        <div class="single-session-list-miniature"><img th:src="@{'/img/' + ${sess.photo.filename}}"></div>
+                        <div class="single-session-list-miniature"><img th:src="@{'/img/' + ${sess.mainPhoto.filename}}"></div>
                     </a>
                     <div class="session-title" th:text="${sess.title}">Tytuł sesji</div>
                 </div>

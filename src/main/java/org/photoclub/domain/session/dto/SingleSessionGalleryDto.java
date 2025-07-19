@@ -8,11 +8,13 @@ public class SingleSessionGalleryDto {
     private Long id;
     private String title;
     private List<Photo> photos;
+    private Photo mainPhoto;
 
-    public SingleSessionGalleryDto(Long id, String title, List<Photo> photo) {
+    public SingleSessionGalleryDto(Long id, String title, List<Photo> photo, Photo mainPhoto) {
         this.id = id;
         this.title = title;
         this.photos = photo;
+        this.mainPhoto = mainPhoto;
     }
 
     public Long getId() {
@@ -37,5 +39,13 @@ public class SingleSessionGalleryDto {
 
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
+    }
+
+    public Photo getMainPhoto() {
+        return mainPhoto;
+    }
+
+    public void setMainPhoto(Photo mainPhoto) {
+        this.mainPhoto = mainPhoto;
     }
 }

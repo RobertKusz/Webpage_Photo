@@ -30,12 +30,10 @@ public class SessionsController {
     @GetMapping("/sesja/{id}")
     public String singleSession(@PathVariable Long id, Model model){
         SingleSessionGalleryDto session = sessionService.getSessionById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
         model.addAttribute("sessionTitle", session.getTitle());
         model.addAttribute("photos", session.getPhotos());
-
-        if (session.getPhotos() != null && !session.getPhotos().isEmpty()) {
-            model.addAttribute("firstPhoto", session.getPhotos().get(0));
-        }
+        model.addAttribute("firstPhoto", session.getMainPhoto());
         return "single-session";
     }
 

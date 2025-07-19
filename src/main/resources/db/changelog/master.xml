@@ -9,6 +9,7 @@
 
     <include file="../testdata/0001_sessions.xml" relativeToChangelogFile="true"/>
     <include file="../testdata/0002_photo.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0003_sessions_update.xml" relativeToChangelogFile="true"/>
 
 
 </databaseChangeLog>

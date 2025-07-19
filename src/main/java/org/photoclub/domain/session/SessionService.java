@@ -6,8 +6,10 @@ import org.photoclub.domain.session.dto.SessionDto;
 import org.photoclub.domain.session.dto.SessionSaveDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 import org.photoclub.storage.FileStorageService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,4 +77,11 @@ public class SessionService {
         photoRepository.deleteById(photoId);
     }
 
+
+    public void setMainPhoto(Long sessionId, Long photoId) {
+        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Photo photo = photoRepository.findById(photoId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        session.setMainPhoto(photo);
+        sessionRepository.save(session);
+    }
 }

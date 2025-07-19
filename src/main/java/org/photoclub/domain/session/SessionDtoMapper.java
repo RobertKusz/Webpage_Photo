@@ -11,13 +11,15 @@ class SessionDtoMapper {
                 session.getTitle(),
                 session.getSessionType(),
                 session.isPromoted(),
-                session.getPhotos().get(0));
+                session.getMainPhoto());
     }
 
     static SingleSessionGalleryDto mapToSingleSessionGallery(Session session){
         return new SingleSessionGalleryDto(
                 session.getId(),
                 session.getTitle(),
-                session.getPhotos());
+                session.getPhotos(),
+                session.getMainPhoto()
+        );
     }
 }

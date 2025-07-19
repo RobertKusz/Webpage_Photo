@@ -60,7 +60,7 @@ public class SessionManagementController {
     }
     @PostMapping("/admin/edytuj_sesje/{sessionId}/main-photo")
     public String setMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
-//        sessionService.setMainPhoto(sessionId, photoId);
+        sessionService.setMainPhoto(sessionId, photoId);
         return "redirect:/admin/edytuj_sesje/" + sessionId;
     }
 
@@ -70,7 +70,7 @@ public class SessionManagementController {
         return "redirect:/admin/edytuj_sesje/" + sessionId;
     }
 
-
+//jeśli usune zdjęcie które jest zdjeciem głownym strona wybucha
 
 
 }

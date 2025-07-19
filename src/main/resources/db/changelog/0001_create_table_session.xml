@@ -4,6 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
     <changeSet id="0001" author="RobertKusz">
         <createTable tableName="session">
             <column name="id" type="BIGINT" autoIncrement="true">
@@ -15,6 +16,7 @@
             </column>
             <column name="created_at" type="TIMESTAMP"/>
             <column name="promoted" type="BOOLEAN"/>
+            <column name="main_photo" type="BIGINT"/>
         </createTable>
     </changeSet>
 
@@ -31,19 +33,30 @@
     </changeSet>
 
     <changeSet id="0003" author="RobertKusz">
-        <addForeignKeyConstraint baseTableName="photo"
-                                 baseColumnNames="session_id"
-                                 referencedTableName="session"
-                                 referencedColumnNames="id"
-                                 constraintName="fk_photo_session"/>
-    </changeSet>
-
-    <changeSet id="0005" author="RobertKusz">
-        <sql>ALTER TABLE session ALTER COLUMN id RESTART WITH 100</sql>
-    </changeSet>
-    <changeSet id="0006" author="RobertKusz">
         <sql>ALTER TABLE photo ALTER COLUMN id RESTART WITH 100</sql>
     </changeSet>
 
+    <changeSet id="0004" author="RobertKusz">
+        <sql>ALTER TABLE session ALTER COLUMN id RESTART WITH 100</sql>
+    </changeSet>
+
+    <changeSet id="0005" author="RobertKusz">
+        <addForeignKeyConstraint
+                baseTableName="photo"
+                baseColumnNames="session_id"
+                referencedTableName="session"
+                referencedColumnNames="id"
+                constraintName="fk_photo_session"/>
+    </changeSet>
+
+    <changeSet id="0006" author="RobertKusz">
+        <addForeignKeyConstraint
+                baseTableName="session"
+                baseColumnNames="main_photo"
+                referencedTableName="photo"
+                referencedColumnNames="id"
+                constraintName="fk_session_main_photo"
+                onDelete="SET NULL"/>
+    </changeSet>
 
 </databaseChangeLog>
