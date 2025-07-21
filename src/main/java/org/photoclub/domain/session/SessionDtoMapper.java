@@ -22,4 +22,5 @@ class SessionDtoMapper {
                 session.getMainPhoto()
         );
     }
+
 }

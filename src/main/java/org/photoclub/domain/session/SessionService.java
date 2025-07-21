@@ -8,6 +8,7 @@ import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 import org.photoclub.storage.FileStorageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -73,15 +74,26 @@ public class SessionService {
         sessionRepository.deleteById(id);
     }
 
-    public void deletePhoto(Long photoId){
-        photoRepository.deleteById(photoId);
-    }
 
-
-    public void setMainPhoto(Long sessionId, Long photoId) {
+    @Transactional
+    public void changeMainPhoto(Long sessionId, Long photoId) {
         Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         Photo photo = photoRepository.findById(photoId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         session.setMainPhoto(photo);
         sessionRepository.save(session);
+    }
+
+    @Transactional
+    public void deletePhoto(Long sessionId, Long photoId) {
+        Session session = sessionRepository.findById(sessionId).orElseThrow();
+        if (photoId.equals(session.getMainPhoto().getId())) {
+            if (session.getPhotos().size() == 1){
+                deleteById(session.getId());
+            }else {
+                photoRepository.deleteById(photoId);
+                session.setMainPhoto(session.getPhotos().get(0));
+                sessionRepository.save(session);
+            }
+        }
     }
 }

@@ -4,6 +4,8 @@
       layout:decorate="~{layout}">
 <head>
     <link rel="stylesheet" th:href="@{/style/admin-edit-session-style.css}">
+    <script defer th:src="@{/scripts/admin-script.js}"></script>
+
 </head>
 <body>
 
@@ -23,14 +25,11 @@
                             <i class="fa-solid fa-star"></i>
                         </button>
                     </form>
-                    <!-- Usuń zdjęcie -->
-                    <form th:action="@{/admin/edytuj_sesje/{sessionId}/delete-photo(sessionId=${sess.id})}" method="post"
-                          onsubmit="return confirm('Na pewno usunąć to zdjęcie?')">
-                        <input type="hidden" name="photoId" th:value="${photo.id}" />
-                        <button type="submit" title="Usuń zdjęcie">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </form>
+                    <!-- Usuń zdjęcie (przycisk z JS) -->
+                    <button type="button" title="Usuń zdjęcie"
+                            th:onclick="'deletePhoto(' + ${sess.id} + ',' + ${photo.id} + ')'">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
             </div>
         </div>

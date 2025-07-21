@@ -1,16 +1,15 @@
 package org.photoclub.web.admin;
 
+import org.photoclub.domain.photo.PhotoService;
 import org.photoclub.domain.session.SessionService;
 import org.photoclub.domain.session.dto.SessionDto;
 import org.photoclub.domain.session.dto.SessionSaveDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,9 +18,11 @@ import java.util.List;
 @Controller
 public class SessionManagementController {
     private final SessionService sessionService;
+    private final PhotoService photoService;
 
-    public SessionManagementController(SessionService sessionService) {
+    public SessionManagementController(SessionService sessionService, PhotoService photoService) {
         this.sessionService = sessionService;
+        this.photoService = photoService;
     }
 
     @GetMapping("/admin/dodaj_sesje")
@@ -59,18 +60,17 @@ public class SessionManagementController {
         return "admin/edit-session-details";
     }
     @PostMapping("/admin/edytuj_sesje/{sessionId}/main-photo")
-    public String setMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
-        sessionService.setMainPhoto(sessionId, photoId);
+    public String changeMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
+        sessionService.changeMainPhoto(sessionId, photoId);
         return "redirect:/admin/edytuj_sesje/" + sessionId;
     }
 
     @PostMapping("/admin/edytuj_sesje/{sessionId}/delete-photo")
-    public String deletePhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
-        sessionService.deletePhoto(photoId);
-        return "redirect:/admin/edytuj_sesje/" + sessionId;
+    @ResponseBody
+    public ResponseEntity<?> deletePhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
+        sessionService.deletePhoto(sessionId, photoId);
+        return ResponseEntity.ok().build();
     }
 
-//jeśli usune zdjęcie które jest zdjeciem głownym strona wybucha
-
-
 }
+
