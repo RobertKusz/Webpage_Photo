@@ -2,7 +2,6 @@ package org.photoclub.config.secutity;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
@@ -20,7 +19,9 @@ public class CustomSecurityConfig {
                 .requestMatchers("/admin/**").hasAnyRole(PHOTOGRAPH_ROLE,ADMIN_ROLE)
                 .anyRequest().permitAll()
         )
-                .formLogin(Customizer.withDefaults());
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .permitAll());
 
         http.csrf().ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"));
         http.headers().frameOptions().sameOrigin();
