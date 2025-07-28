@@ -10,6 +10,6 @@ public class PhotoApplication {
     }
 
 
-    //dodać logowanie administratora i potem panel admina
+    //jestem w trakcie przerabiania danych testowych
 
 }

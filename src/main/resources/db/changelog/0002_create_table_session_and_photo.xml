@@ -17,6 +17,7 @@
             <column name="created_at" type="TIMESTAMP"/>
             <column name="promoted" type="BOOLEAN"/>
             <column name="main_photo" type="BIGINT"/>
+            <column name="webpage_id" type="BIGINT"/>
         </createTable>
     </changeSet>
 
@@ -57,6 +58,14 @@
                 referencedColumnNames="id"
                 constraintName="fk_session_main_photo"
                 onDelete="SET NULL"/>
+    </changeSet>
+
+    <changeSet id="0007" author="RobertKusz">
+        <addForeignKeyConstraint baseTableName="session"
+                                 baseColumnNames="webpage_id"
+                                 referencedTableName="webpage"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_session_webpage"/>
     </changeSet>
 
 </databaseChangeLog>

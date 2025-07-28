@@ -5,13 +5,15 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <include file="0001_create_table_session.xml" relativeToChangelogFile="true"/>
-    <include file="0002_create_tables_user_and_user_role.xml" relativeToChangelogFile="true"/>
+    <include file="0001_create_table_webpage.xml" relativeToChangelogFile="true"/>
+    <include file="0002_create_table_session_and_photo.xml" relativeToChangelogFile="true"/>
+    <include file="0003_create_tables_user_and_user_role.xml" relativeToChangelogFile="true"/>
 
-    <include file="../testdata/0001_sessions.xml" relativeToChangelogFile="true"/>
-    <include file="../testdata/0002_photo.xml" relativeToChangelogFile="true"/>
-    <include file="../testdata/0003_sessions_update.xml" relativeToChangelogFile="true"/>
-    <include file="../testdata/0004_users_and_roles.sql" relativeToChangelogFile="true"/>
+    <include file="../testdata/0001_webpage.sql" relativeToChangelogFile="true"/>
+    <include file="../testdata/0002_sessions.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0003_photo.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0004_sessions_update.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0005_users_and_roles.sql" relativeToChangelogFile="true"/>
 
 
 </databaseChangeLog>

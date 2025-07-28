@@ -1,6 +1,7 @@
 package org.photoclub.domain.user;
 
 import jakarta.persistence.*;
+import org.photoclub.domain.webpage.Webpage;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<UserRole> roles = new HashSet<>();
-
+    private Long webpageId;
     public Long getId() {
         return id;
     }
