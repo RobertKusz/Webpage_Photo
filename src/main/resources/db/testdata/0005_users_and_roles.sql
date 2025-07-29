@@ -3,7 +3,9 @@ insert into
 values
     ('admin@example.com', '{noop}adminpass', null),   -- 1
     ('user@example.com', '{noop}userpass', null),     -- 2
-    ('photo@example.com', '{noop}photopass', 1); -- 3
+    ('photo1@example.com', '{noop}photopass', 1), -- 3
+    ('photo2@example.com', '{noop}photopass', 1), -- 3
+    ('photo3@example.com', '{noop}photopass', 1); -- 3
 
 insert into
     user_role (name, description)
@@ -17,4 +19,6 @@ insert into
 values
     (1, 1),
     (2, 2),
-    (3, 3);
+    (3, 3),
+    (4, 3),
+    (5, 3);

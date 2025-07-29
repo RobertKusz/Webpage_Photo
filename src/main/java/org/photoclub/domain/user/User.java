@@ -22,6 +22,7 @@ public class User {
     )
     private Set<UserRole> roles = new HashSet<>();
     private Long webpageId;
+
     public Long getId() {
         return id;
     }
@@ -52,5 +53,13 @@ public class User {
 
     public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public Long getWebpageId() {
+        return webpageId;
+    }
+
+    public void setWebpageId(Long webpageId) {
+        this.webpageId = webpageId;
     }
 }

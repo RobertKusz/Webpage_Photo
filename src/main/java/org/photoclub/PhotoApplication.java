@@ -10,6 +10,5 @@ public class PhotoApplication {
     }
 
 
-    //jestem w trakcie przerabiania danych testowych
-
+// dodać mappowanie usera, dodać wyświetlanie urzytkowników na pierwszej stronie
 }

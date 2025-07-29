@@ -1,9 +1,12 @@
 package org.photoclub.domain.user;
 
 import org.photoclub.domain.user.dto.UserCredentialsDto;
+import org.photoclub.domain.user.dto.UserFirstPageDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -14,6 +17,14 @@ public class UserService {
     }
     public Optional<UserCredentialsDto> findCredentialsByEmail(String email){
         return userRepository.findByEmail(email)
-                .map(UserCredentialsDtoMapper::map);
+                .map(user -> UserDtoMapper.map(user));
+    }
+
+    public List<UserFirstPageDto> getListOfAllByRole(String role) {
+        return userRepository.findByRoles_name(role)
+                .stream()
+                .map(Optional::orElseThrow)
+                .map(UserDtoMapper::mapToFirstPage)
+                .collect(Collectors.toList());
     }
 }
