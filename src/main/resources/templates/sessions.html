@@ -16,7 +16,7 @@
             <section class="sessions-grid">
                 <div class="session-card" th:each="sess: ${allSessions}">
                     <a href="#" th:href="@{|/sesja/${sess.id}|}">
-                        <img th:src="@{'/img/' + ${sess.photo.filename}}" th:alt="${sess.title}">
+                        <img th:src="@{'/img/' + ${sess.mainPhoto.filename}}" th:alt="${sess.title}">
                     </a>
                 </div>
             </section>

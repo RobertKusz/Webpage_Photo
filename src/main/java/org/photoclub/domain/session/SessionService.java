@@ -96,4 +96,12 @@ public class SessionService {
             }
         }
     }
+
+    public List<SessionDto> getAllSessionsByWebpageId(Long webpageId) {
+        return sessionRepository.findByWebpageId(webpageId)
+                .stream()
+                .map(Optional::orElseThrow)
+                .map(SessionDtoMapper::map)
+                .toList();
+    }
 }

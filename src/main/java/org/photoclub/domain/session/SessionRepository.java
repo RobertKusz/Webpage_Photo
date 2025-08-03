@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface SessionRepository extends CrudRepository<Session,Long> {
     List<Session> findAllByPromotedIsTrueAndSessionType(String sessionType);
     List<Session> findAll();
-
     Optional<Session> findById(Long id);
+    List<Optional<Session>> findByWebpageId (Long webpageId);
 
 }
