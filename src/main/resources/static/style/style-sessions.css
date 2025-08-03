@@ -1,58 +1,90 @@
-.promoted-sessions-container{
-      display: flex;
-      flex-direction: column;
-      background-color: #f1f1f1;
-      padding: 0 30px;
+.promoted-sessions-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    padding: 0 30px;
 }
 
-.sessions-by-type{
+.sessions-by-type {
     padding: 0 15px;
+    margin: 0 auto;
+    max-width: 1250px;
+    width: 95%;
 }
-.session-name{
+
+.session-name {
     text-align: center;
     font-size: 30px;
-    margin-top:30px;
-}
-.session-title{
-    text-align: center;
-    font-size: 20px;
     margin-top: 30px;
-    margin-bottom: 5px;
-}
-.session-image{
-    text-align:center;
 }
 
-.session-image > img{
-    width:95%;
+.session-title {
+    text-align: center;
+    font-size: 20px;
+    margin: 30px 0 5px;
+    transition: color 0.3s ease;
+}
+
+.session-image {
+    text-align: center;
+}
+
+.session-image img {
+    width: 95%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.single-session {
+    margin: 0 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.single-session:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.single-session:hover .session-image img {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.single-session:hover .session-title {
+    color: #444;
+    font-weight: bold;
 }
 
 @media (min-width: 992px) {
-    .sessions-container{
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-    }
-    .sessions-group{
-         display: flex;
-         flex-direction: row;
-    }
-    .sessions-by-type{
-        margin: 0 auto;
-        max-width: 1250px;
-        flex: 1;
-        width:95%;
+        .sessions-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
 
-        padding: 15px;
-    }
-    .single-session{
-        width:100%;
-        margin: auto 10px;
-    }
-    .session-image > img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
+        .sessions-group {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sessions-by-type {
+            margin: 0 auto;
+            max-width: 1250px;
+            flex: 1;
+            width: 95%;
+            padding: 15px;
+        }
+
+        .single-session {
+            width: 100%;
+            margin: auto 10px;
+        }
+
+        .session-image > img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
 }

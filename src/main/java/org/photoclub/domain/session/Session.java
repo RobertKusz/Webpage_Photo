@@ -3,6 +3,7 @@ package org.photoclub.domain.session;
 import jakarta.persistence.*;
 import org.photoclub.domain.photo.Photo;
 import org.photoclub.domain.webpage.Webpage;
+//import org.photoclub.domain.webpage.Webpage;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,7 +25,6 @@ public class Session {
     @ManyToOne
     @JoinColumn(name = "webpage_id")
     private Webpage webpage;
-
 
     public boolean isPromoted() {
         return promoted;

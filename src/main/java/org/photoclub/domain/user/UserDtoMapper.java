@@ -2,6 +2,7 @@ package org.photoclub.domain.user;
 
 import org.photoclub.domain.user.dto.UserCredentialsDto;
 import org.photoclub.domain.user.dto.UserFirstPageDto;
+import org.photoclub.domain.user.dto.UserHomepageDto;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -19,8 +20,17 @@ public class UserDtoMapper {
 
     public static UserFirstPageDto mapToFirstPage(User user){
         UserFirstPageDto userFirstPageDto = new UserFirstPageDto();
+        userFirstPageDto.setId(user.getId());
         userFirstPageDto.setEmail(user.getEmail());
         userFirstPageDto.setWebpageId(user.getWebpageId());
         return userFirstPageDto;
+    }
+
+    public static UserHomepageDto mapToHomepage(User user){
+        UserHomepageDto userHomepageDto = new UserHomepageDto();
+        userHomepageDto.setId(user.getId());
+        userHomepageDto.setEmail(user.getEmail());
+        userHomepageDto.setWebpageId(user.getWebpageId());
+        return userHomepageDto;
     }
 }

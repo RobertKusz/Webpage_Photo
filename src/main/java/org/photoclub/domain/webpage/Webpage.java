@@ -3,6 +3,7 @@ package org.photoclub.domain.webpage;
 import jakarta.persistence.*;
 import org.photoclub.domain.session.Session;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,12 @@ public class Webpage {
     private String descriptionSecondLayer;
     private String descriptionThirdLayer;
     private String rollingPhoto;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "webpage_id")
+    private List<Session> sessions = new ArrayList<>();
+
+    // aktualnie mam zrobione tak że sesia ma swoją webpage a chce zrobić żeby to webpage miało swoje sesie.
+    // żeby w kontrolerze mając samą webpage dało się wyświetlać wszystkie jej sesje
 
     public String getIntroductionFirstLayer() {
         return introductionFirstLayer;
@@ -34,9 +41,6 @@ public class Webpage {
     public void setIntroductionSecondLayer(String introductionSecondLayer) {
         this.introductionSecondLayer = introductionSecondLayer;
     }
-
-    @OneToMany(mappedBy = "webpage", cascade = CascadeType.ALL)
-    private List<Session> sessions;
 
     public Long getId() {
         return id;

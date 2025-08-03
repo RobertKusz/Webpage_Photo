@@ -3,9 +3,9 @@ package org.photoclub.domain.session;
 import org.photoclub.domain.session.dto.SessionDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 
-class SessionDtoMapper {
+public class SessionDtoMapper {
 
-    static SessionDto map(Session session){
+    public static SessionDto map(Session session){
         return new SessionDto(
                 session.getId(),
                 session.getTitle(),

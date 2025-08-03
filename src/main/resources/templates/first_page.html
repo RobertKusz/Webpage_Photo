@@ -25,9 +25,10 @@
 <div class="main">
     <h1>Wybierz użytkownika</h1>
     <div class="user-list">
-        <div class="user-item" th:each="photograph:${photographs}" th:remove="all-but-first">
-            <a href="#" th:text="${photograph.email}">Anna Kowalska</a>
-        </div>
+        <a href="#" th:href="${photograph.id}" th:each="photograph:${photographs}" class="user-item">
+            <div th:text="${photograph.email}">TEST</div>
+        </a>
+
     </div>
 </div>
 

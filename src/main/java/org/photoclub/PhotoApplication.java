@@ -10,5 +10,5 @@ public class PhotoApplication {
     }
 
 
-// dodać mappowanie usera, dodać wyświetlanie urzytkowników na pierwszej stronie
+    // html wyświetlanie sesji zdjeć do poprawy, nie wyśietla sie
 }

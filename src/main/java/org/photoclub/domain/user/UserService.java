@@ -2,6 +2,7 @@ package org.photoclub.domain.user;
 
 import org.photoclub.domain.user.dto.UserCredentialsDto;
 import org.photoclub.domain.user.dto.UserFirstPageDto;
+import org.photoclub.domain.user.dto.UserHomepageDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,5 +27,15 @@ public class UserService {
                 .map(Optional::orElseThrow)
                 .map(UserDtoMapper::mapToFirstPage)
                 .collect(Collectors.toList());
+    }
+
+    public UserHomepageDto findUserByEmail(String userEmail) {
+        UserHomepageDto userHomepageDto = userRepository.findByEmail(userEmail).map(UserDtoMapper::mapToHomepage).orElseThrow();
+        return userHomepageDto;
+    }
+
+    public UserHomepageDto findUserById(Long id) {
+        UserHomepageDto userHomepageDto = userRepository.findById(id).map(UserDtoMapper::mapToHomepage).orElseThrow();
+        return userHomepageDto;
     }
 }

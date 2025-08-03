@@ -61,22 +61,22 @@
         <main class="main-content">
             <div class="about-me">
                 <div class="about-me-titles">
-                    <div class="about-me-profession">FOTOGRAFIA KRAJOBRAZOWA</div>
-                    <div class="about-me-description">FOTOGRAF KRAJOBRAZOWY ZNAJDUJE I KOMPONUJE KADRY NATURALNE</div>
+                    <div class="about-me-profession" th:text="${webpage.introductionFirstLayer}">FOTOGRAFIA KRAJOBRAZOWA</div>
+                    <div class="about-me-description" th:text="${webpage.introductionSecondLayer}">FOTOGRAF KRAJOBRAZOWY ZNAJDUJE I KOMPONUJE KADRY NATURALNE</div>
                 </div>
                 <div class="about-me-introduction">
                     <div class="about-me-img-container">
-                        <img class="about-me-img" th:src="@{/img/photograph.jpg}">
+                        <img class="about-me-img" th:src="@{'/img/' + ${webpage.photographerPhoto}}">
                     </div>
 
                     <div class="about-me-greeting-container">
-                        <div class="about-me-greeting-big">
+                        <div class="about-me-greeting-big" th:text="${webpage.descriptionFirstLayer}">
                             Cześć
                         </div>
-                        <div class="about-me-greeting-small">
+                        <div class="about-me-greeting-small" th:text="${webpage.descriptionSecondLayer}">
                             Jestem Robert, miło mi, że tu jesteś.
                         </div>
-                        <div class="about-me-greeting-description">
+                        <div class="about-me-greeting-description" th:text="${webpage.descriptionThirdLayer}">
                             Fotografia krajobrazowa to sztuka uchwycenia piękna i
                             charakteru danego miejsca, niezależnie od tego, czy jest
                             to naturalny teren, czy obszar przekształcony przez
@@ -89,45 +89,23 @@
             <div class="spacer"></div>
 
 
-
-
             <div class="promoted-sessions-container">
-                <div class="sessions-by-type">
-                    <div class="session-name">
-                        Weeding
-                    </div>
-                    <div class="sessions-group">
-
-                        <div class="single-session" th:each="weedingSession: ${weedingSessions}">
-                            <a th:href="@{|/sesja/${weedingSession.id}|}">
-                                <div class="session-title" th:text="${weedingSession.title}">
-                                    SESSION TITLE
-                                </div>
-                                <div class="session-image">
-                                    <img th:src="@{'/img/' + ${weedingSession.mainPhoto.filename}}" />
-                                </div>
-                            </a>
+                <div class="promoted-sessions-container">
+                    <div class="sessions-by-type" th:each="entry : ${sessionsByType}">
+                        <div class="session-name" th:text="${entry.key}">Typ sesji</div>
+                        <div class="sessions-group">
+                            <div class="single-session" th:each="sess : ${entry.value}">
+                                <a th:href="@{|/sesja/${sess.id}|}">
+                                    <div class="session-title" th:text="${sess.title}">SESSION TITLE</div>
+                                    <div class="session-image">
+                                        <img th:src="@{'/img/' + ${sess.mainPhoto.filename}}" />
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="sessions-by-type">
-                    <div class="session-name">
-                        Landscape
-                    </div>
-                    <div class="sessions-group">
-                        <div class="single-session" th:each="landscapeSession: ${landscapeSessions}">
-                            <a th:href="@{|/sesja/${landscapeSession.id}|}">
-                                <div class="session-title" th:text="${landscapeSession.title}">
-                                    SESSION TITLE
-                                </div>
-                                <div class="session-image">
-                                    <img th:src="@{'/img/' + ${landscapeSession.mainPhoto.filename}}"/>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 

@@ -3,9 +3,9 @@ insert into
 values
     ('admin@example.com', '{noop}adminpass', null),   -- 1
     ('user@example.com', '{noop}userpass', null),     -- 2
-    ('photo1@example.com', '{noop}photopass', 1), -- 3
-    ('photo2@example.com', '{noop}photopass', 1), -- 3
-    ('photo3@example.com', '{noop}photopass', 1); -- 3
+    ('robert.kusz1998@example.com', '{noop}robert.kusz1998', 1), -- 3
+    ('robinkusz11@example.com', '{noop}robinkusz11', 2), -- 3
+    ('demmon11@example.com', '{noop}demmon11', 3); -- 3
 
 insert into
     user_role (name, description)
