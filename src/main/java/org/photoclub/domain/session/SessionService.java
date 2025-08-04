@@ -5,6 +5,10 @@ import org.photoclub.domain.photo.PhotoRepository;
 import org.photoclub.domain.session.dto.SessionDto;
 import org.photoclub.domain.session.dto.SessionSaveDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
+import org.photoclub.domain.user.UserService;
+import org.photoclub.domain.user.dto.UserHomepageDto;
+import org.photoclub.domain.webpage.Webpage;
+import org.photoclub.domain.webpage.WebpageService;
 import org.photoclub.storage.FileStorageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -22,11 +26,15 @@ public class SessionService {
     private final SessionRepository sessionRepository;
     private final FileStorageService fileStorageService;
     private final PhotoRepository photoRepository;
+    private final UserService userService;
+    private final WebpageService webpageService;
 
-    public SessionService(SessionRepository sessionRepository, FileStorageService fileStorageService, PhotoRepository photoRepository) {
+    public SessionService(SessionRepository sessionRepository, FileStorageService fileStorageService, PhotoRepository photoRepository, UserService userService, WebpageService webpageService) {
         this.sessionRepository = sessionRepository;
         this.fileStorageService = fileStorageService;
         this.photoRepository = photoRepository;
+        this.userService = userService;
+        this.webpageService = webpageService;
     }
 
     public List<SessionDto> findAllPromotedSessionsByType(String type){
@@ -36,15 +44,23 @@ public class SessionService {
                 .toList();
     }
 
-    public List<SessionDto> getAllSessions() {
-        return sessionRepository.findAll().stream().map(SessionDtoMapper::map).collect(Collectors.toList());
+    public List<SessionDto> getAllSessionsByUserId(Long userId) {
+        UserHomepageDto userById = userService.findUserById(userId);
+        Long webpageId = userById.getWebpageId();
+        List<Optional<Session>> byWebpageId = sessionRepository.findByWebpageId(webpageId);
+
+        return sessionRepository.findByWebpageId(webpageId)
+                .stream()
+                .map(Optional::orElseThrow)
+                .map(SessionDtoMapper::map)
+                .collect(Collectors.toList());
     }
 
     public Optional <SingleSessionGalleryDto> getSessionById(Long id) {
         return sessionRepository.findById(id).map(SessionDtoMapper::mapToSingleSessionGallery);
     }
 
-    public void addSession(SessionSaveDto sessionToSave) {
+    public void addSession(SessionSaveDto sessionToSave, Long userId) {
         Session session = new Session();
         session.setTitle(sessionToSave.getTitle());
         session.setSessionType(sessionToSave.getSessionType());
@@ -65,9 +81,26 @@ public class SessionService {
                     photoList.add(photo);
                 }
             }
+            session.setMainPhoto(photoList.get(0));
+        } else {
+            Photo photo = new Photo();
+            photo.setId(99L);
+            photo.setSession(session);
+            photo.setFilename("empty_img.jpg");
+            session.setMainPhoto(photo);
         }
         session.setPhotos(photoList);
+
         sessionRepository.save(session);
+        addSessionToUser(session, userId);
+    }
+
+    void addSessionToUser(Session session, Long userid){
+        UserHomepageDto userById = userService.findUserById(userid);
+        Long webpageId = userById.getWebpageId();
+        Webpage webpage = webpageService.findWebpageById(webpageId);
+        webpage.getSessions().add(session);
+        webpageService.save(webpage);
     }
 
     public void deleteById(Long id){

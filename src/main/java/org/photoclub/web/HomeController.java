@@ -1,6 +1,5 @@
 package org.photoclub.web;
 
-import org.photoclub.domain.session.Session;
 import org.photoclub.domain.session.SessionDtoMapper;
 import org.photoclub.domain.session.SessionService;
 import org.photoclub.domain.session.dto.SessionDto;
@@ -32,7 +31,7 @@ public class HomeController {
     @GetMapping("/{id}")
     public String home(Model model, @PathVariable Long id){
         UserHomepageDto userById = userService.findUserById(id);
-        WebpageDto webpage = webpageService.findWebpageById(userById.getWebpageId());
+        WebpageDto webpage = webpageService.findWebpageDtoById(userById.getWebpageId());
 
         List<SessionDto> sessionDtos = webpage.getSessions().stream()
                 .map(SessionDtoMapper::map)

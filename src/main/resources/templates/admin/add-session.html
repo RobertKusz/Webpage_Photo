@@ -12,11 +12,11 @@
 
 <main class="main-content" layout:fragment="content">
     <div class="form">
-        <form action="" method="post" enctype="multipart/form-data" class="admin-form" th:object="${session}">
+        <form th:action="@{|/admin/${userId}/dodaj_sesje|}" th:method="post" enctype="multipart/form-data" class="admin-form" th:object="${session}">
             <label for="title">Tytuł</label>
             <input type="text" id="title" class="form-text-field" placeholder="Przykładowy tytuł" th:field="*{title}">
 
-            <label for="sessionType">Tytuł oryginalny</label>
+            <label for="sessionType">Typ sesji</label>
             <input type="text" id="sessionType" class="form-text-field" placeholder="Przykładowy typ" th:field="*{sessionType}">
 
             <label for="createdAt">Data utworzenia</label>

@@ -2,6 +2,7 @@ package org.photoclub.domain.webpage;
 
 import org.photoclub.domain.webpage.dto.WebpageDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class WebpageService {
@@ -11,7 +12,14 @@ public class WebpageService {
         this.webpageRepository = webpageRepository;
     }
 
-    public WebpageDto findWebpageById(Long webpageId) {
+    public WebpageDto findWebpageDtoById(Long webpageId) {
         return webpageRepository.findById(webpageId).map(WebpageDtoMapper::map).orElseThrow();
+    }
+    public Webpage findWebpageById(Long webpageId) {
+        return webpageRepository.findById(webpageId).orElseThrow();
+    }
+    @Transactional
+    public void save(Webpage webpage) {
+        webpageRepository.save(webpage);
     }
 }

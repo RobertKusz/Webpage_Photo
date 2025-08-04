@@ -23,8 +23,6 @@ public class Webpage {
     @JoinColumn(name = "webpage_id")
     private List<Session> sessions = new ArrayList<>();
 
-    // aktualnie mam zrobione tak że sesia ma swoją webpage a chce zrobić żeby to webpage miało swoje sesie.
-    // żeby w kontrolerze mając samą webpage dało się wyświetlać wszystkie jej sesje
 
     public String getIntroductionFirstLayer() {
         return introductionFirstLayer;

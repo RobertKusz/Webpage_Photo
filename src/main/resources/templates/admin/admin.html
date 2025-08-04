@@ -12,13 +12,13 @@
             <div class="admin-menu">
                 <div class="admin-heading"><h2>Panel administracyjny</h2></div>
 
-                <a th:href="@{admin/dodaj_sesje}">
+                <a th:href="@{|/admin/${userId}/dodaj_sesje|}">
                     <div class="admin-menu-button">Dodaj nowa sesje</div>
                 </a>
-                <a th:href="@{admin/edytuj_sesje}">
+                <a th:href="@{|/admin/${userId}/edytuj_sesje|}">
                     <div class="admin-menu-button">Edytuj istniejącą sesje</div>
                 </a>
-                <a th:href="@{admin/zarzadzaj}">
+                <a th:href="@{|admin/${userId}/zarzadzaj|}">
                     <div class="admin-menu-button">Zarzadzaj strona główną</div>
                 </a>
             </div>

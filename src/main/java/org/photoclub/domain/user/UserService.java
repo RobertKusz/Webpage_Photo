@@ -38,4 +38,8 @@ public class UserService {
         UserHomepageDto userHomepageDto = userRepository.findById(id).map(UserDtoMapper::mapToHomepage).orElseThrow();
         return userHomepageDto;
     }
+
+    public Long findUserIdByEmail(String userEmail){
+        return findUserByEmail(userEmail).getId();
+    }
 }

@@ -25,49 +25,50 @@ public class SessionManagementController {
         this.photoService = photoService;
     }
 
-    @GetMapping("/admin/dodaj_sesje")
-    public String getAddingSessionPanel(Model model){
+    @GetMapping("/admin/{userId}/dodaj_sesje")
+    public String getAddingSessionPanel(Model model, @PathVariable Long userId){
         SessionSaveDto sessionSaveDto = new SessionSaveDto();
         model.addAttribute("session", sessionSaveDto);
+        model.addAttribute("userId",userId);
         return "admin/add-session";
     }
 
-    @PostMapping("/admin/dodaj_sesje")
-    public String addSession(SessionSaveDto sessionSaveDto, RedirectAttributes redirectAttributes){
-        sessionService.addSession(sessionSaveDto);
+    @PostMapping("/admin/{userId}/dodaj_sesje")
+    public String addSession(SessionSaveDto sessionSaveDto, RedirectAttributes redirectAttributes, @PathVariable Long userId){
+        sessionService.addSession(sessionSaveDto, userId);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTRIBUTE,
                 "Film %s został zapisany".formatted(sessionSaveDto.getTitle()));
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/edytuj_sesje")
-    public String getEditingSessionPanel(Model model){
-        List<SessionDto> allSessions = sessionService.getAllSessions();
+    @GetMapping("/admin/{userId}/edytuj_sesje")
+    public String getEditingSessionPanel(Model model, @PathVariable Long userId){
+        List<SessionDto> allSessions = sessionService.getAllSessionsByUserId(userId);
         model.addAttribute("sessions", allSessions);
         return "admin/edit-session";
     }
 
-    @PostMapping("/admin/edytuj-sesje/delete/{id}")
-    public String deleteSession(@PathVariable Long id) {
+    @PostMapping("/admin/{userId}/edytuj-sesje/delete/{id}")
+    public String deleteSession(@PathVariable Long id, @PathVariable Long userId) {
         sessionService.deleteById(id);
         return "redirect:/admin/edytuj_sesje";
     }
 
-    @GetMapping("/admin/edytuj_sesje/{id}")
-    public String editSession(@PathVariable Long id, Model model) {
+    @GetMapping("/admin/{userId}/edytuj_sesje/{id}")
+    public String editSession(@PathVariable Long id, Model model, @PathVariable Long userId) {
         SingleSessionGalleryDto session = sessionService.getSessionById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         model.addAttribute("sess", session);
         return "admin/edit-session-details";
     }
-    @PostMapping("/admin/edytuj_sesje/{sessionId}/main-photo")
-    public String changeMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
+    @PostMapping("/admin/{userId}/edytuj_sesje/{sessionId}/main-photo")
+    public String changeMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId, @PathVariable Long userId) {
         sessionService.changeMainPhoto(sessionId, photoId);
         return "redirect:/admin/edytuj_sesje/" + sessionId;
     }
 
-    @PostMapping("/admin/edytuj_sesje/{sessionId}/delete-photo")
+    @PostMapping("/admin/{userId}/edytuj_sesje/{sessionId}/delete-photo")
     @ResponseBody
-    public ResponseEntity<?> deletePhoto(@PathVariable Long sessionId, @RequestParam Long photoId) {
+    public ResponseEntity<?> deletePhoto(@PathVariable Long sessionId, @RequestParam Long photoId, @PathVariable Long userId) {
         sessionService.deletePhoto(sessionId, photoId);
         return ResponseEntity.ok().build();
     }
