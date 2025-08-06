@@ -6,11 +6,14 @@
     <link rel="stylesheet" th:href="@{/style/admin-edit-session-style.css}">
     <script defer th:src="@{/scripts/admin-script.js}"></script>
 
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
 </head>
 <body>
 
 <main class="main-content" layout:fragment="content">
-    <div class="session-gallery-container">
+    <div class="session-gallery-container" th:attr="data-user-id=${userId}, data-session-id=${sess.id}">
 
         <h2 th:text="'Galeria zdjęć: ' + ${sess.title}">Galeria zdjęć</h2>
 
@@ -19,7 +22,7 @@
                 <img th:src="@{'/img/' + ${photo.filename}}" alt="Zdjęcie sesji">
                 <div class="photo-actions">
                     <!-- Ustaw jako główne -->
-                    <form th:action="@{/admin/edytuj_sesje/{sessionId}/main-photo(sessionId=${sess.id})}" method="post">
+                    <form th:action="@{|/admin/${userId}/edytuj_sesje/${sess.id}/main-photo|}" method="post">
                         <input type="hidden" name="photoId" th:value="${photo.id}" />
                         <button type="submit" title="Ustaw jako główne">
                             <i class="fa-solid fa-star"></i>
@@ -27,7 +30,7 @@
                     </form>
                     <!-- Usuń zdjęcie (przycisk z JS) -->
                     <button type="button" title="Usuń zdjęcie"
-                            th:onclick="'deletePhoto(' + ${sess.id} + ',' + ${photo.id} + ')'">
+                            th:attr="data-photo-id=${photo.id}" class="delete-photo-btn">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>

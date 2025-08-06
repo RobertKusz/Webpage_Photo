@@ -10,5 +10,5 @@ public class PhotoApplication {
     }
 
 
-    // html wyświetlanie sesji zdjeć do poprawy, nie wyśietla sie
+    // nie idzie usunąć zdjęć problem a js. csrf byl wczesniej problemem
 }
