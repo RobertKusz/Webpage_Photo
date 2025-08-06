@@ -1,5 +1,6 @@
 package org.photoclub.domain.session;
 
+import org.hibernate.annotations.NotFound;
 import org.photoclub.domain.photo.Photo;
 import org.photoclub.domain.photo.PhotoRepository;
 import org.photoclub.domain.session.dto.SessionDto;
@@ -118,16 +119,21 @@ public class SessionService {
 
     @Transactional
     public void deletePhoto(Long sessionId, Long photoId) {
-        Session session = sessionRepository.findById(sessionId).orElseThrow();
+        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Photo photoToDelete = photoRepository.findById(photoId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        session.getPhotos().remove(photoToDelete);
+
         if (photoId.equals(session.getMainPhoto().getId())) {
-            if (session.getPhotos().size() == 1){
+            if (session.getPhotos().isEmpty()){
                 deleteById(session.getId());
+                return;
             }else {
-                photoRepository.deleteById(photoId);
                 session.setMainPhoto(session.getPhotos().get(0));
-                sessionRepository.save(session);
             }
         }
+        photoRepository.delete(photoToDelete);
+        sessionRepository.save(session);
     }
 
     public List<SessionDto> getAllSessionsByWebpageId(Long webpageId) {

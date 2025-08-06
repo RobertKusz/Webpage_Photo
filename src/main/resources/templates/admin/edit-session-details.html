@@ -18,7 +18,7 @@
         <h2 th:text="'Galeria zdjęć: ' + ${sess.title}">Galeria zdjęć</h2>
 
         <div class="gallery-grid">
-            <div class="gallery-item" th:each="photo : ${sess.photos}">
+            <div class="gallery-item" th:each="photo : ${sess.photos}" th:classappend="${photo}==${sess.mainPhoto} ? 'main-photo' : ''" >
                 <img th:src="@{'/img/' + ${photo.filename}}" alt="Zdjęcie sesji">
                 <div class="photo-actions">
                     <!-- Ustaw jako główne -->
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <a th:href="@{/admin/edytuj_sesje}" class="back-button">← Powrót do panelu</a>
+        <a th:href="@{|/admin/${userId}/edytuj_sesje|}" class="back-button">← Powrót do panelu</a>
     </div>
 </main>
 

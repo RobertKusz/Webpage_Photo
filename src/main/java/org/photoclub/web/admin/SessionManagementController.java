@@ -51,19 +51,20 @@ public class SessionManagementController {
     @PostMapping("/admin/{userId}/edytuj-sesje/delete/{id}")
     public String deleteSession(@PathVariable Long id, @PathVariable Long userId) {
         sessionService.deleteById(id);
-        return "redirect:/admin/edytuj_sesje";
+        return "redirect:/admin/"+userId+"/edytuj_sesje";
     }
 
     @GetMapping("/admin/{userId}/edytuj_sesje/{id}")
     public String editSession(@PathVariable Long id, Model model, @PathVariable Long userId) {
         SingleSessionGalleryDto session = sessionService.getSessionById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         model.addAttribute("sess", session);
+        model.addAttribute("userId", userId);
         return "admin/edit-session-details";
     }
     @PostMapping("/admin/{userId}/edytuj_sesje/{sessionId}/main-photo")
     public String changeMainPhoto(@PathVariable Long sessionId, @RequestParam Long photoId, @PathVariable Long userId) {
         sessionService.changeMainPhoto(sessionId, photoId);
-        return "redirect:/admin/edytuj_sesje/" + sessionId;
+        return "redirect:/admin/"+userId+"/edytuj_sesje/" + sessionId;
     }
 
     @PostMapping("/admin/{userId}/edytuj_sesje/{sessionId}/delete-photo")
