@@ -10,5 +10,5 @@ public class PhotoApplication {
     }
 
 
-    // nie idzie usunąć zdjęć problem a js. csrf byl wczesniej problemem
+    // przerobić pierwszą strone i homepage, dodać nowe dane urzytkownika fb ig logo itp.
 }

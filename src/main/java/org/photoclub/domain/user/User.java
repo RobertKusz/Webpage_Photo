@@ -1,7 +1,7 @@
 package org.photoclub.domain.user;
 
 import jakarta.persistence.*;
-import org.photoclub.domain.webpage.Webpage;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +14,17 @@ public class User {
     private Long id;
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
+    private String faceBook;
+    private String instagram;
+    private String logoHomeFilename;
+    private String miniatureFilename;
+    private Long homePageId;
+    private Long aboutMePageId;
+    private String portfolioDescription;
+    private String photographingType;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
@@ -21,7 +32,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<UserRole> roles = new HashSet<>();
-    private Long webpageId;
 
     public Long getId() {
         return id;
@@ -47,6 +57,54 @@ public class User {
         this.password = password;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFaceBook() {
+        return faceBook;
+    }
+
+    public void setFaceBook(String faceBook) {
+        this.faceBook = faceBook;
+    }
+
+    public String getInstagram() {
+        return instagram;
+    }
+
+    public void setInstagram(String instagram) {
+        this.instagram = instagram;
+    }
+
+    public String getLogoHomeFilename() {
+        return logoHomeFilename;
+    }
+
+    public void setLogoHomeFilename(String logoHomeFilename) {
+        this.logoHomeFilename = logoHomeFilename;
+    }
+
+    public String getMiniatureFilename() {
+        return miniatureFilename;
+    }
+
+    public void setMiniatureFilename(String miniatureFilename) {
+        this.miniatureFilename = miniatureFilename;
+    }
+
     public Set<UserRole> getRoles() {
         return roles;
     }
@@ -55,11 +113,34 @@ public class User {
         this.roles = roles;
     }
 
-    public Long getWebpageId() {
-        return webpageId;
+    public Long getHomePageId() {
+        return homePageId;
     }
 
-    public void setWebpageId(Long webpageId) {
-        this.webpageId = webpageId;
+    public void setHomePageId(Long homePageId) {
+        this.homePageId = homePageId;
+    }
+
+    public Long getAboutMePageId() {
+        return aboutMePageId;
+    }
+
+    public void setAboutMePageId(Long aboutMePageId) {
+        this.aboutMePageId = aboutMePageId;
+    }
+
+    public String getPortfolioDescription() {
+        return portfolioDescription;
+    }
+
+    public void setPortfolioDescription(String portfolioDescription) {
+        this.portfolioDescription = portfolioDescription;
+    }
+    public String getPhotographingType() {
+        return photographingType;
+    }
+
+    public void setPhotographingType(String photographingType) {
+        this.photographingType = photographingType;
     }
 }

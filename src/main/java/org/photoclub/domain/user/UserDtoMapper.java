@@ -22,7 +22,11 @@ public class UserDtoMapper {
         UserFirstPageDto userFirstPageDto = new UserFirstPageDto();
         userFirstPageDto.setId(user.getId());
         userFirstPageDto.setEmail(user.getEmail());
-        userFirstPageDto.setWebpageId(user.getWebpageId());
+        userFirstPageDto.setWebpageId(user.getHomePageId());
+        userFirstPageDto.setFirstName(user.getFirstName());
+        userFirstPageDto.setLastName(user.getLastName());
+        userFirstPageDto.setMiniatureFilename(user.getMiniatureFilename());
+        userFirstPageDto.setPhotographingType(user.getPhotographingType());
         return userFirstPageDto;
     }
 
@@ -30,7 +34,7 @@ public class UserDtoMapper {
         UserHomepageDto userHomepageDto = new UserHomepageDto();
         userHomepageDto.setId(user.getId());
         userHomepageDto.setEmail(user.getEmail());
-        userHomepageDto.setWebpageId(user.getWebpageId());
+        userHomepageDto.setWebpageId(user.getHomePageId());
         return userHomepageDto;
     }
 }
