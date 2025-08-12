@@ -31,8 +31,9 @@ public class SessionsController {
         UserHomepageDto user = userService.findUserById(id);
         List<SessionDto> allSessions = sessionService.getAllSessionsByWebpageId(user.getWebpageId());
 
-//        List<SessionDto> allSessions = sessionService.getAllSessions();
+
         model.addAttribute("allSessions", allSessions);
+        model.addAttribute("photograph", user);
         return "sessions";
     }
 

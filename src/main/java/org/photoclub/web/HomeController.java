@@ -41,7 +41,7 @@ public class HomeController {
                 .collect(Collectors.groupingBy(SessionDto::getSessionType));
         model.addAttribute("sessionsByType", sessionsByType);
         model.addAttribute("webpage", webpage);
-        model.addAttribute("userId", id);
+        model.addAttribute("photograph", userById);
         return "home-page";
     }
 }

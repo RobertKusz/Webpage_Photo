@@ -35,6 +35,9 @@ public class UserDtoMapper {
         userHomepageDto.setId(user.getId());
         userHomepageDto.setEmail(user.getEmail());
         userHomepageDto.setWebpageId(user.getHomePageId());
+        userHomepageDto.setFacebook(user.getFaceBook());
+        userHomepageDto.setInstagram(user.getInstagram());
+        userHomepageDto.setLogoFilename(user.getLogoHomeFilename());
         return userHomepageDto;
     }
 }

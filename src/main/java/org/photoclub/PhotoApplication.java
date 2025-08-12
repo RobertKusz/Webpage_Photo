@@ -10,5 +10,5 @@ public class PhotoApplication {
     }
 
 
-    // przerobić pierwszą strone i homepage, dodać nowe dane urzytkownika fb ig logo itp.
+    // przerobić home page, bardziej spersonalizować
 }

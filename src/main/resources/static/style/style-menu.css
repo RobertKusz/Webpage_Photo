@@ -1,15 +1,4 @@
-/* ============================================================
-   FotoClub – kompletny arkusz stylów
-   ============================================================
-   Założenia:
-   • Mobil-first (max-width: 991px), potem desktop ≥ 992 px
-   • Logo wyśrodkowane, sekcje menu po bokach
-   • Hamburger otwiera / zamyka menu na mobile
-   • Kolory: tło #424242, akccent #ffc107, tekst biały
-   • Czcionka: Roboto (300/400)
-   ============================================================ */
 
-/* ---------- Reset + bazowe ---------- */
 * {
     margin: 0;
     padding: 0;
@@ -86,21 +75,29 @@ a {
 }
 
 #menu-button-left{
-
     display: none;
 }
 .menu-toggle{
     padding: 30px;
     font-size: 30px;
 }
-.menu-item,
-.menu-logo-container{
-    padding: 30px;
+.menu-item{
+    margin: auto;
+    padding: 20px;
     font-size: 30px;
+}
+.menu-logo-container{
+    padding: 5px;
+}
+.homepage-logo{
+    max-width:200px
 }
 .fa-facebook,
 .fa-instagram{
     color: white;
+}
+.menu-button{
+    margin: auto;
 }
 
 .spacer{
