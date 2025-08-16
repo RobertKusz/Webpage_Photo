@@ -1,9 +1,6 @@
-package org.photoclub.domain.webpage;
+package org.photoclub.domain.webpages.homePage;
 
-import org.photoclub.domain.session.SessionDtoMapper;
-import org.photoclub.domain.webpage.dto.WebpageDto;
-
-import java.util.stream.Collectors;
+import org.photoclub.domain.webpages.homePage.dto.WebpageDto;
 
 public class WebpageDtoMapper {
     static WebpageDto map (Webpage webpage){

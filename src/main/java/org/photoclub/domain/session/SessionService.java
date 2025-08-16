@@ -1,6 +1,5 @@
 package org.photoclub.domain.session;
 
-import org.hibernate.annotations.NotFound;
 import org.photoclub.domain.photo.Photo;
 import org.photoclub.domain.photo.PhotoRepository;
 import org.photoclub.domain.session.dto.SessionDto;
@@ -8,8 +7,8 @@ import org.photoclub.domain.session.dto.SessionSaveDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
 import org.photoclub.domain.user.UserService;
 import org.photoclub.domain.user.dto.UserHomepageDto;
-import org.photoclub.domain.webpage.Webpage;
-import org.photoclub.domain.webpage.WebpageService;
+import org.photoclub.domain.webpages.homePage.Webpage;
+import org.photoclub.domain.webpages.homePage.WebpageService;
 import org.photoclub.storage.FileStorageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

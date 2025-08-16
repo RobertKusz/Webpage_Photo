@@ -2,7 +2,7 @@ package org.photoclub.domain.session;
 
 import jakarta.persistence.*;
 import org.photoclub.domain.photo.Photo;
-import org.photoclub.domain.webpage.Webpage;
+import org.photoclub.domain.webpages.homePage.Webpage;
 //import org.photoclub.domain.webpage.Webpage;
 
 import java.time.LocalDateTime;

@@ -1,6 +1,6 @@
-package org.photoclub.domain.webpage;
+package org.photoclub.domain.webpages.homePage;
 
-import org.photoclub.domain.webpage.dto.WebpageDto;
+import org.photoclub.domain.webpages.homePage.dto.WebpageDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -10,5 +10,5 @@ public class PhotoApplication {
     }
 
 
-    // przerobić home page, bardziej spersonalizować
+    // napisać klasy dla wszystkich stron jakie urzytkownik może posiadać, i dodać je do urzytkownika
 }

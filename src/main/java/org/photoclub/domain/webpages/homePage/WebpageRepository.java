@@ -1,4 +1,4 @@
-package org.photoclub.domain.webpage;
+package org.photoclub.domain.webpages.homePage;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

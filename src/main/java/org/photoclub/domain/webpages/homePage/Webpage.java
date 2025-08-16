@@ -1,14 +1,16 @@
-package org.photoclub.domain.webpage.dto;
+package org.photoclub.domain.webpages.homePage;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import org.photoclub.domain.session.Session;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebpageDto {
+@Entity
+public class Webpage {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstBackground;
     private String introductionFirstLayer;
     private String introductionSecondLayer;
@@ -17,15 +19,10 @@ public class WebpageDto {
     private String descriptionSecondLayer;
     private String descriptionThirdLayer;
     private String rollingPhoto;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "webpage_id")
     private List<Session> sessions = new ArrayList<>();
 
-    public String getFirstBackground() {
-        return firstBackground;
-    }
-
-    public void setFirstBackground(String firstBackground) {
-        this.firstBackground = firstBackground;
-    }
 
     public String getIntroductionFirstLayer() {
         return introductionFirstLayer;
@@ -41,6 +38,22 @@ public class WebpageDto {
 
     public void setIntroductionSecondLayer(String introductionSecondLayer) {
         this.introductionSecondLayer = introductionSecondLayer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstBackground() {
+        return firstBackground;
+    }
+
+    public void setFirstBackground(String firstBackground) {
+        this.firstBackground = firstBackground;
     }
 
     public String getPhotographerPhoto() {
