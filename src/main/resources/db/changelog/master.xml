@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <include file="0001_create_table_webpage.xml" relativeToChangelogFile="true"/>
+    <include file="0001_create_tables_webpage_and_about_me_and_contact_and_portfolio.xml" relativeToChangelogFile="true"/>
     <include file="0002_create_table_session_and_photo.xml" relativeToChangelogFile="true"/>
     <include file="0003_create_tables_user_and_user_role.xml" relativeToChangelogFile="true"/>
 

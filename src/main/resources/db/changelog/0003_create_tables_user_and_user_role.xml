@@ -23,6 +23,8 @@
             <column name="miniature_filename" type="VARCHAR(255)"/>
             <column name="home_page_id" type="BIGINT"/>
             <column name="about_me_page_id" type="BIGINT"/>
+            <column name="contact_page_id" type="BIGINT"/>
+            <column name="portfolio_page_id" type="BIGINT"/>
             <column name="portfolio_description" type="VARCHAR(255)"/>
             <column name="photographing_type" type="VARCHAR(255)"/>
         </createTable>

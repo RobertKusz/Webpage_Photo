@@ -1,7 +1,6 @@
 package org.photoclub.domain.user;
 
 import jakarta.persistence.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +21,8 @@ public class User {
     private String miniatureFilename;
     private Long homePageId;
     private Long aboutMePageId;
+    private Long contactPageId;
+    private Long portfolioPageId;
     private String portfolioDescription;
     private String photographingType;
 
@@ -142,5 +143,21 @@ public class User {
 
     public void setPhotographingType(String photographingType) {
         this.photographingType = photographingType;
+    }
+
+    public Long getContactPageId() {
+        return contactPageId;
+    }
+
+    public void setContactPageId(Long contactPageId) {
+        this.contactPageId = contactPageId;
+    }
+
+    public Long getPortfolioPageId() {
+        return portfolioPageId;
+    }
+
+    public void setPortfolioPageId(Long portfolioPageId) {
+        this.portfolioPageId = portfolioPageId;
     }
 }
