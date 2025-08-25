@@ -10,6 +10,7 @@
     <include file="0003_create_tables_user_and_user_role.xml" relativeToChangelogFile="true"/>
 
     <include file="../testdata/0001_webpage.sql" relativeToChangelogFile="true"/>
+    <include file="../testdata/0002_about_me_page.sql" relativeToChangelogFile="true"/>
     <include file="../testdata/0002_sessions.xml" relativeToChangelogFile="true"/>
     <include file="../testdata/0003_photo.xml" relativeToChangelogFile="true"/>
     <include file="../testdata/0004_sessions_update.xml" relativeToChangelogFile="true"/>

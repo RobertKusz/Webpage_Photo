@@ -1,0 +1,56 @@
+.informations-container {
+    width: 100%
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.information {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.information.left .short-information {
+    order: 0;
+}
+.information.left .long-information {
+    order: 1;
+}
+
+.information.right .short-information {
+    order: 1;
+}
+.information.right .long-information {
+    order: 0;
+}
+
+.short-information, .long-information{
+    display: flex;
+    align-items: center;
+    height: 120px;
+}
+
+.short-information > p, .long-information > p{
+    text-align: center;
+    margin: auto;
+    font-size: larger;
+}
+
+.short-information {
+    flex: 1;
+    background-color: #e0f0ff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.long-information {
+    flex: 2;
+    background-color: ##FFEFFB;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+

@@ -19,12 +19,6 @@
             <column name="rolling_photo" type="VARCHAR(255)"/>
         </createTable>
 
-        <createTable tableName="about_me">
-            <column name="id" type="BIGINT" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-        </createTable>
-
         <createTable tableName="contact">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -36,6 +30,55 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+
+
+
+
+    <changeSet id="about-me-001" author="RobertKusz">
+        <createTable tableName="about_me">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="about-me-002" author="RobertKusz">
+        <createTable tableName="about_me_short_description">
+            <column name="about_me_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="short_description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="about_me_short_description"
+                baseColumnNames="about_me_id"
+                referencedTableName="about_me"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                constraintName="fk_short_about_me"/>
+    </changeSet>
+
+    <changeSet id="about-me-003" author="RobertKusz">
+    <createTable tableName="about_me_long_description">
+        <column name="about_me_id" type="BIGINT">
+            <constraints nullable="false"/>
+        </column>
+        <column name="long_description" type="VARCHAR(1000)">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+
+    <addForeignKeyConstraint
+            baseTableName="about_me_long_description"
+            baseColumnNames="about_me_id"
+            referencedTableName="about_me"
+            referencedColumnNames="id"
+            onDelete="CASCADE"
+            constraintName="fk_long_about_me"/>
     </changeSet>
 
 </databaseChangeLog>

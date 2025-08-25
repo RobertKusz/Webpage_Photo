@@ -9,5 +9,5 @@ public class PhotoApplication {
         SpringApplication.run(PhotoApplication.class, args);
     }
 
-    // napisać klasy dla wszystkich stron jakie urzytkownik może posiadać, i dodać je do urzytkownika
+    // napisać strine aboutme i dodać wejcej możliwości personalizacji
 }

@@ -4,7 +4,7 @@ insert into users (
 ) values
 (1, 'admin@example.com', '{noop}adminpass', 'Admin', 'Root', null,null,null,null,null,null, NULL,NULL,null,null),
 (2, 'user@example.com', '{noop}userpass', 'User', 'Normal', null,null,null,null,null,null, NULL,NULL,null,null),
-(3, 'robert.kusz1998@example.com', '{noop}robert.kusz1998', 'Robert', 'Kusz', 'fb.com/robert.kusz', 'instagram.com/robertkusz', 'empty-logo.png', 'empty_img.jpg', 1, NULL, NULL, NULL, 'Profesjonalny fotograf ślubny','wedding'),
+(3, 'robert.kusz1998@example.com', '{noop}robert.kusz1998', 'Robert', 'Kusz', 'fb.com/robert.kusz', 'instagram.com/robertkusz', 'empty-logo.png', 'empty_img.jpg', 1, 1, NULL, NULL, 'Profesjonalny fotograf ślubny','wedding'),
 (4, 'robinkusz11@example.com', '{noop}robinkusz11', 'Robin', 'Kusz', 'fb.com/robinkusz', 'instagram.com/robinkusz11', 'empty-logo.png', 'empty_img.jpg', 2, NULL, NULL, NULL, 'Fotograf portretowy z pasją','portrait'),
 (5, 'demmon11@example.com', '{noop}demmon11', 'Damian', 'Emmon', 'fb.com/demmon', 'instagram.com/demmon11', 'empty-logo.png', 'empty_img.jpg', 3, NULL, NULL, NULL, 'Zajmuję się fotografią sportową','landscape');
 

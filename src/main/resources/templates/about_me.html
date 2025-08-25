@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>O mine</title>
+    <link rel="stylesheet" th:href="@{/style/style-about-me-page.css}">
+</head>
+<body>
+
+<main class="main-content" layout:fragment="content">
+        <div class="informations-container">
+            <div th:each="short, iter : ${content.shortDescription}">
+                <div th:class="'information ' + (${iter.index % 2 == 0} ? 'left' : 'right')">
+                    <div class="short-information">
+                        <p th:text="${short}"></p>
+                    </div>
+
+                    <div class="long-information">
+                        <p th:text="${content.longDescription[iter.index]}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+
+</body>
+</html>
