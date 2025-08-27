@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout_admin_pages}">
 <head>
     <link rel="stylesheet" th:href="@{/style/admin-edit-session-style.css}">
     <script defer th:src="@{/scripts/admin-script.js}"></script>
 
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
 
 </head>
 <body>
+<main class="main-content" layout:fragment="admin_content">
 
-<main class="main-content" layout:fragment="content">
     <div class="session-gallery-container" th:attr="data-user-id=${userId}, data-session-id=${sess.id}">
 
         <h2 th:text="'Galeria zdjęć: ' + ${sess.title}">Galeria zdjęć</h2>
@@ -40,6 +43,5 @@
         <a th:href="@{|/admin/${userId}/edytuj_sesje|}" class="back-button">← Powrót do panelu</a>
     </div>
 </main>
-
 </body>
 </html>

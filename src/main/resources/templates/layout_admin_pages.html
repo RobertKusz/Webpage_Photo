@@ -1,0 +1,96 @@
+<!--https://fotoreportazslubny.com/-->
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:style="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>FotoClub</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <script defer th:src="@{/scripts/scripts.js}"></script>
+
+    <!-- STYLE -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav.navbar {
+            background: #222;
+            padding: 1rem;
+        }
+
+        nav.navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav.navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav.navbar a:hover {
+            color: #ffd700;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background: #222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- MENU -->
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">TEST</a></li>
+            <li><a th:href="@{/}">TEST</a></li>
+            <li><a th:href="@{/}">TEST</a></li>
+            <li><a th:href="@{/}">TEST</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="main-content" layout:fragment="admin_content">
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>FotoClub 2025 <i class="fas fa-copyright"></i></p>
+    </footer>
+
+</div>
+</body>
+</html>

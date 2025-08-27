@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" >
 <head>
     <link rel="stylesheet" th:href="@{/style/login.css}">
 </head>
 <body>
 
-<main class="main-content" layout:fragment="content">
+<main class="main-content" >
     <h2 class="list-heading">Zaloguj się</h2>
     <form action="" th:action="@{/login}" method="post" class="mc-form">
         <p th:if="${param.error}"
