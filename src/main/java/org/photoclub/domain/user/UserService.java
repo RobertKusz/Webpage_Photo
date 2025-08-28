@@ -34,10 +34,12 @@ public class UserService {
         return userHomepageDto;
     }
 
-    public UserHomepageDto findUserById(Long id) {
+    public UserHomepageDto findUserHomepageDtoById(Long id) {
         UserHomepageDto userHomepageDto = userRepository.findById(id).map(UserDtoMapper::mapToHomepage).orElseThrow();
         return userHomepageDto;
     }
+
+
 
     public Long findUserIdByEmail(String userEmail){
         return findUserByEmail(userEmail).getId();

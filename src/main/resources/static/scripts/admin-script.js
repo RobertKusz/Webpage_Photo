@@ -45,3 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".editable-item .item-header").forEach(header => {
+        header.addEventListener("click", () => {
+            const parent = header.closest(".editable-item");
+            parent.classList.toggle("active");
+        });
+    });
+});

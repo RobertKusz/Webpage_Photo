@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #f8f8f8;
+    color: #333;
+}
+
+.content {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.admin-heading h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    color: #222;
+}
+
+.editable-item {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.editable-item:hover {
+    transform: scale(1.01);
+}
+
+.item-header {
+    padding: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+
+.edit-menu {
+    display: none;            /* domyślnie ukryte */
+    padding: 1rem;
+    background: #fafafa;
+
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.editable-item.active .edit-menu {
+    display: flex;            /* pokaż tylko gdy kliknięte */
+}
+
+.edit-menu .buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-menu button {
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #222;
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.edit-menu button:hover {
+    background: #ffd700;
+    color: #222;
+}
+
+.editable-item.active .edit-menu {
+    display: flex;
+}
+
+.img-container img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}

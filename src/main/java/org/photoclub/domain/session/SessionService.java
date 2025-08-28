@@ -45,7 +45,7 @@ public class SessionService {
     }
 
     public List<SessionDto> getAllSessionsByUserId(Long userId) {
-        UserHomepageDto userById = userService.findUserById(userId);
+        UserHomepageDto userById = userService.findUserHomepageDtoById(userId);
         Long webpageId = userById.getWebpageId();
         List<Optional<Session>> byWebpageId = sessionRepository.findByWebpageId(webpageId);
 
@@ -96,7 +96,7 @@ public class SessionService {
     }
 
     void addSessionToUser(Session session, Long userid){
-        UserHomepageDto userById = userService.findUserById(userid);
+        UserHomepageDto userById = userService.findUserHomepageDtoById(userid);
         Long webpageId = userById.getWebpageId();
         Webpage webpage = webpageService.findWebpageById(webpageId);
         webpage.getSessions().add(session);

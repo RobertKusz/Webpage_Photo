@@ -30,7 +30,7 @@ public class HomeController {
 
     @GetMapping("/{id}")
     public String home(Model model, @PathVariable Long id){
-        UserHomepageDto userById = userService.findUserById(id);
+        UserHomepageDto userById = userService.findUserHomepageDtoById(id);
         WebpageDto webpage = webpageService.findWebpageDtoById(userById.getWebpageId());
 
         List<SessionDto> sessionDtos = webpage.getSessions().stream()

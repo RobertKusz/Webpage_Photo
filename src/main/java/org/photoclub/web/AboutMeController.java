@@ -22,7 +22,7 @@ public class AboutMeController {
     @GetMapping("/{id}/o_mnie")
     String loadAboutMePage(@PathVariable Long id, Model model){
         AboutMeDto aboutMePageContent = aboutMeService.getAboutMePageContentByUserId(id);
-        UserHomepageDto userById = userService.findUserById(id);
+        UserHomepageDto userById = userService.findUserHomepageDtoById(id);
 
         model.addAttribute("content", aboutMePageContent);
         model.addAttribute("photograph", userById);

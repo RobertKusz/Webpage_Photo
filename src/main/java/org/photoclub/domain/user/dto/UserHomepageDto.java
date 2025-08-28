@@ -1,6 +1,6 @@
 package org.photoclub.domain.user.dto;
 
-public class UserHomepageDto {
+public class  UserHomepageDto {
     private Long id;
     private String email;
     private Long webpageId;

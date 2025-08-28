@@ -3,7 +3,6 @@ package org.photoclub.web;
 import org.photoclub.domain.session.SessionService;
 import org.photoclub.domain.session.dto.SessionDto;
 import org.photoclub.domain.session.dto.SingleSessionGalleryDto;
-import org.photoclub.domain.user.User;
 import org.photoclub.domain.user.UserRepository;
 import org.photoclub.domain.user.UserService;
 import org.photoclub.domain.user.dto.UserHomepageDto;
@@ -28,7 +27,7 @@ public class SessionsController {
 
     @GetMapping("{id}/sesje")
     public String sessionPage(@PathVariable Long id, Model model){
-        UserHomepageDto user = userService.findUserById(id);
+        UserHomepageDto user = userService.findUserHomepageDtoById(id);
         List<SessionDto> allSessions = sessionService.getAllSessionsByWebpageId(user.getWebpageId());
 
 
