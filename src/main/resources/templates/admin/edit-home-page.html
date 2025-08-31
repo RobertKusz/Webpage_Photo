@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout_admin_pages}">
+      layout:decorate="~{layout_admin_pages}" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" th:href="@{/style/admin-edit-home-page-style.css}">
     <script defer th:src="@{/scripts/admin-script.js}"></script>
@@ -26,56 +26,99 @@
             <div class="editable-item">
                 <div class="item-header">Przedstawienie się – pierwsza linia</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/przedstawienie_pierwsza_linia|}" th:method="post">
+                        <div class="buttons">
+                            <button type="submit">Zapisz</button>
+                        </div>
+                        <div class="text-container">
+                            <input type="text" name="introductionFirstLayer"
+                                   th:value="${webpage.introductionFirstLayer}">
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="editable-item">
                 <div class="item-header">Przedstawienie się – druga linia</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/przedstawienie_druga_linia|}" th:method="post">
+                        <div class="buttons">
+                            <button type="submit">Zapisz</button>
+                        </div>
+                        <div class="text-container">
+                            <input type="text" name="introductionSecondLayer"
+                                th:value="${webpage.introductionSecondLayer}">
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="editable-item">
                 <div class="item-header">Zdjęcie fotografa</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <div class="buttons">
+                        <button>Dodaj inne zdjęcie</button>
+                    </div>
+                    <div class="img-container">
+                        <img th:src="@{|/img/${webpage.photographerPhoto}|}" alt="Podgląd">
+                    </div>
                 </div>
             </div>
 
             <div class="editable-item">
                 <div class="item-header">Opis – pierwsza warstwa</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/opis_pierwsza_linia|}" th:method="post">
+                        <div class="buttons">
+                            <button type="submit">Zapisz</button>
+                        </div>
+                        <div class="text-container">
+                            <input type="text" name="descriptionFirstLayer"
+                                   th:value="${webpage.descriptionFirstLayer}">
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="editable-item">
                 <div class="item-header">Opis – druga warstwa</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/opis_druga_linia|}" th:method="post">
+                        <div class="buttons">
+                            <button type="submit">Zapisz</button>
+                        </div>
+                        <div class="text-container">
+                            <input type="text" name="descriptionSecondLayer"
+                                   th:value="${webpage.descriptionSecondLayer}">
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="editable-item">
                 <div class="item-header">Opis – trzecia warstwa</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/opis_trzecia_linia|}" th:method="post">
+                        <div class="buttons">
+                            <button type="submit">Zapisz</button>
+                        </div>
+                        <div class="text-container">
+                            <input type="text" name="descriptionThirdLayer"
+                                   th:value="${webpage.descriptionThirdLayer}">
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="editable-item">
                 <div class="item-header">Ozdobne tło przewijane</div>
                 <div class="edit-menu">
-                    <button>Edytuj</button>
-                    <button>Usuń</button>
+                    <div class="buttons">
+                        <button>Dodaj inne zdjęcie</button>
+                    </div>
+                    <div class="img-container">
+                        <img th:src="@{|/img/${webpage.rollingPhoto}|}" alt="Podgląd">
+                    </div>
                 </div>
             </div>
         </div>

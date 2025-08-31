@@ -37,23 +37,34 @@ body {
     border-bottom: 1px solid #eee;
 }
 
+/* --- ukryj menu edycji domyślnie --- */
 .edit-menu {
-    display: none;            /* domyślnie ukryte */
+    display: none;
     padding: 1rem;
     background: #fafafa;
-
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+    border-top: 1px solid #eee;
 }
 
+/* --- pokaż po kliknięciu --- */
 .editable-item.active .edit-menu {
-    display: flex;            /* pokaż tylko gdy kliknięte */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- formularz w poziomie --- */
+.edit-menu form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
 }
 
 .edit-menu .buttons {
-    display: flex;
-    gap: 0.5rem;
+    flex: 0 0 auto;
 }
 
 .edit-menu button {
@@ -71,8 +82,27 @@ body {
     color: #222;
 }
 
-.editable-item.active .edit-menu {
-    display: flex;
+/* --- pola tekstowe i treść --- */
+.edit-menu .text-container {
+    flex: 1;
+}
+
+.edit-menu input[type="text"] {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.text-container p {
+    max-width: 200px;
+    height: auto;
+}
+
+/* --- obrazki --- */
+.img-container {
+    flex: 1;
+    text-align: right;
 }
 
 .img-container img {
