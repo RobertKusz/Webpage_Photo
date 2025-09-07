@@ -54,13 +54,31 @@ a {
     box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
 
 }
-.first-background{
+/*.first-background{
     height: 100vh;
     background-image: url("../img/background.webp");
     background-repeat: no-repeat;
     background-height:100px;
     background-size: cover;
+}*/
+
+.first-background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden; /* ukryje nadmiar obrazka */
 }
+
+.first-background .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* działa jak background-size: cover */
+    z-index: -1; /* obraz pod treścią */
+}
+
+
 .left-section{
     display: none;
 }
@@ -99,15 +117,24 @@ a {
 .menu-button{
     margin: auto;
 }
-
+/*
 .spacer{
-    background-image: url("../img/rolling_background1.jpg"); /* ścieżka do zdjęcia */
+    background-image: url("../img/rolling_background1.jpg");
     height: 40vh;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
 }
+*/
+.spacer {
+    height: 40vh;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 
 .dropdown-menu {
     position: absolute;

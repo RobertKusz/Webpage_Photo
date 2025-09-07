@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 @Controller
 public class HomePageManagementController {
@@ -31,6 +34,14 @@ public class HomePageManagementController {
 
         return "/admin/edit-home-page";
     }
+    @PostMapping("/admin/{userId}/zarzadzaj_strona_glowna/{webpageId}/pierwsze_tlo")
+    String changeFirstBackground(@PathVariable Long userId,
+                                        @PathVariable Long webpageId,
+                                        @RequestParam MultipartFile file){
+        webpageService.changeFirstBackground(webpageId, file);
+        return "redirect:/admin/"+userId+"/zarzadzaj_strona_glowna";
+    }
+
 
     @PostMapping("/admin/{userId}/zarzadzaj_strona_glowna/{webpageId}/przedstawienie_pierwsza_linia")
     String changeIntroductionFirstLayer(@PathVariable Long userId,
@@ -67,9 +78,17 @@ public class HomePageManagementController {
 
     @PostMapping("/admin/{userId}/zarzadzaj_strona_glowna/{webpageId}/opis_trzecia_linia")
     String changeDescriptionThirdLayer(@PathVariable Long userId,
-                                        @PathVariable Long webpageId,
-                                        @RequestParam String descriptionThirdLayer){
+                                       @PathVariable Long webpageId,
+                                       @RequestParam String descriptionThirdLayer){
         webpageService.changeDescriptionThirdLayer(webpageId, descriptionThirdLayer);
+        return "redirect:/admin/"+userId+"/zarzadzaj_strona_glowna";
+    }
+
+    @PostMapping("/admin/{userId}/zarzadzaj_strona_glowna/{webpageId}/tlo_przewijane")
+    String changeRollingPhoto(@PathVariable Long userId,
+                                 @PathVariable Long webpageId,
+                                 @RequestParam MultipartFile file){
+        webpageService.changeRollingPhoto(webpageId, file);
         return "redirect:/admin/"+userId+"/zarzadzaj_strona_glowna";
     }
 }

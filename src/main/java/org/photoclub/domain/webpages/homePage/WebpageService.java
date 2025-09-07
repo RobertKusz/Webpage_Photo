@@ -1,15 +1,23 @@
 package org.photoclub.domain.webpages.homePage;
 
+import org.photoclub.domain.user.User;
+import org.photoclub.domain.user.UserDtoMapper;
+import org.photoclub.domain.user.UserRepository;
 import org.photoclub.domain.webpages.homePage.dto.WebpageDto;
+import org.photoclub.storage.FileStorageService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class WebpageService {
     private final WebpageRepository webpageRepository;
-
-    public WebpageService(WebpageRepository webpageRepository) {
+    private final FileStorageService fileStorageService;
+    private final UserRepository userRepository;
+    public WebpageService(WebpageRepository webpageRepository, FileStorageService fileStorageService, UserRepository userRepository) {
         this.webpageRepository = webpageRepository;
+        this.fileStorageService = fileStorageService;
+        this.userRepository = userRepository;
     }
 
     public WebpageDto findWebpageDtoById(Long webpageId) {
@@ -50,5 +58,32 @@ public class WebpageService {
         Webpage webpage = findWebpageById(webpageId);
         webpage.setDescriptionThirdLayer(descriptionThirdLayer);
         save(webpage);
+    }
+
+    @Transactional
+    public void changeFirstBackground(Long webpageId, MultipartFile file) {
+        String filename = fileStorageService.saveImage(file);
+
+        Webpage webpage = findWebpageById(webpageId);
+        webpage.setFirstBackground(filename);
+        save(webpage);
+
+//        User user = userRepository.findById(userId).orElseThrow();
+//        user.setHomePageId(webpage.getId());
+//        userRepository.save(user);
+    }
+
+    @Transactional
+    public void changeRollingPhoto(Long webpageId, MultipartFile file) {
+        String filename = fileStorageService.saveImage(file);
+
+        Webpage webpage = findWebpageById(webpageId);
+        webpage.setRollingPhoto(filename);
+        save(webpage);
+
+//        User user = userRepository.findById(userId).orElseThrow();
+//        user.setHomePageId(webpage.getId());
+//        userRepository.save(user);
+
     }
 }

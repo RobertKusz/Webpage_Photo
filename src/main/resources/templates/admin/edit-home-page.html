@@ -14,12 +14,17 @@
             <div class="editable-item">
                 <div class="item-header">Pierwsze tło</div>
                 <div class="edit-menu">
-                    <div class="buttons">
-                        <button>Dodaj inne zdjęcie</button>
-                    </div>
-                    <div class="img-container">
-                        <img th:src="@{|/img/${webpage.firstBackground}|}" alt="Podgląd">
-                    </div>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/pierwsze_tlo|}"
+                          th:method="post"
+                          enctype="multipart/form-data">
+                        <div class="buttons">
+                            <input type="file" name="file">
+                            <button type="submit">Dodaj inne zdjęcie</button>
+                        </div>
+                        <div class="img-container">
+                            <img th:src="@{|/img/${webpage.firstBackground}|}" alt="Podgląd">
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -113,12 +118,17 @@
             <div class="editable-item">
                 <div class="item-header">Ozdobne tło przewijane</div>
                 <div class="edit-menu">
-                    <div class="buttons">
-                        <button>Dodaj inne zdjęcie</button>
-                    </div>
-                    <div class="img-container">
-                        <img th:src="@{|/img/${webpage.rollingPhoto}|}" alt="Podgląd">
-                    </div>
+                    <form th:action="@{|/admin/${userId}/zarzadzaj_strona_glowna/${webpage.id}/tlo_przewijane|}"
+                          th:method="post"
+                          enctype="multipart/form-data">
+                        <div class="buttons">
+                            <input type="file" name="file">
+                            <button type="submit">Dodaj inne zdjęcie</button>
+                        </div>
+                        <div class="img-container">
+                            <img th:src="@{|/img/${webpage.rollingPhoto}|}" alt="Podgląd">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -25,6 +25,8 @@
 <body>
 <div class="container">
     <div class="first-background" style="height: auto;">
+        <img th:src="@{|/img/${webpage.firstBackground}|}" alt="background" class="background-img">
+
         <nav class="menu">
             <div class="menu-section left-section">
                 <div class="menu-item"><a th:href="${photograph.facebook}"><i class="fa-brands fa-facebook"></i></a></div>
