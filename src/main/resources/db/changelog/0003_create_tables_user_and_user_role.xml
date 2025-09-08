@@ -62,4 +62,8 @@
         </createTable>
 
     </changeSet>
+
+    <changeSet id="0003-2" author="RobertKusz">
+        <sql>ALTER TABLE users ALTER COLUMN id RESTART WITH 100</sql>
+    </changeSet>
 </databaseChangeLog>

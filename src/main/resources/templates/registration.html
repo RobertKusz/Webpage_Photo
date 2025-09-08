@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" th:href="@{/style/registration.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Rejestracja</h2>
+    <div class="forms-container">
+
+        <!-- Formularz użytkownika -->
+        <div class="form-box">
+            <h3>Rejestracja użytkownika</h3>
+            <form th:action="@{/rejestracja/uzytkownik}" method="post" th:object="${user}">
+                <label for="user-email">Email</label>
+                <input id="user-email" type="email" th:field="*{email}" required>
+
+                <label for="user-password">Hasło</label>
+                <input id="user-password" type="password" th:field="*{password}" required>
+
+                <label for="user-firstName">Imię</label>
+                <input id="user-firstName" type="text" th:field="*{firstName}" required>
+
+                <label for="user-lastName">Nazwisko</label>
+                <input id="user-lastName" type="text" th:field="*{lastName}" required>
+
+                <button type="submit">Zarejestruj się</button>
+            </form>
+        </div>
+
+        <!-- Formularz fotografa -->
+        <div class="form-box">
+            <h3>Rejestracja fotografa</h3>
+            <form th:action="@{/rejestracja/fotograf}" method="post" th:object="${photograph}">
+                <label for="photo-email">Email</label>
+                <input id="photo-email" type="email" th:field="*{email}" required>
+
+                <label for="photo-password">Hasło</label>
+                <input id="photo-password" type="password" th:field="*{password}" required>
+
+                <label for="photo-firstName">Imię</label>
+                <input id="photo-firstName" type="text" th:field="*{firstName}" required>
+
+                <label for="photo-lastName">Nazwisko</label>
+                <input id="photo-lastName" type="text" th:field="*{lastName}" required>
+
+                <label for="photo-type">Rodzaj fotografii</label>
+                <input id="photo-type" type="text" th:field="*{photographingType}" placeholder="np. ślubna, krajobrazowa">
+
+                <button type="submit">Zarejestruj się</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
