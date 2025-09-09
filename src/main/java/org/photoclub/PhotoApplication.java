@@ -9,5 +9,10 @@ public class PhotoApplication {
         SpringApplication.run(PhotoApplication.class, args);
     }
 
-    // napisać strine aboutme i dodać wejcej możliwości personalizacji
+    // doddać enumy zamiast typuów sesji
+
+    // dodać modyfikacje portfolio
+    // dodać modyfikacje aboutMe
+    // dodać strone contact
+    // dodać modyfikacje contact
 }

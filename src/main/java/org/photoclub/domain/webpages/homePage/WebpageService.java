@@ -11,6 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class WebpageService {
+    final String DEFAULT_BACKGROUND = "background.webp";
+    final String DEFAULT_ROLLING_BACKGROUND="rolling_background1.jpg";
+    final String DEFAULT_PHOTOGRAPH_PHOTO="photograph.jpg";
     private final WebpageRepository webpageRepository;
     private final FileStorageService fileStorageService;
     private final UserRepository userRepository;
@@ -36,13 +39,11 @@ public class WebpageService {
         webpage.setIntroductionFirstLayer(introductionFirstLayer);
         save(webpage);
     }
-
     public void changeIntroductionSecondLayer(Long webpageId, String introductionSecondLayer) {
         Webpage webpage = findWebpageById(webpageId);
         webpage.setIntroductionSecondLayer(introductionSecondLayer);
         save(webpage);
     }
-
     public void changeDescriptionFirstLayer(Long webpageId, String descriptionFirstLayer) {
         Webpage webpage = findWebpageById(webpageId);
         webpage.setDescriptionFirstLayer(descriptionFirstLayer);
@@ -53,13 +54,11 @@ public class WebpageService {
         webpage.setDescriptionSecondLayer(descriptionSecondLayer);
         save(webpage);
     }
-
     public void changeDescriptionThirdLayer(Long webpageId, String descriptionThirdLayer) {
         Webpage webpage = findWebpageById(webpageId);
         webpage.setDescriptionThirdLayer(descriptionThirdLayer);
         save(webpage);
     }
-
     @Transactional
     public void changeFirstBackground(Long webpageId, MultipartFile file) {
         String filename = fileStorageService.saveImage(file);
@@ -67,10 +66,6 @@ public class WebpageService {
         Webpage webpage = findWebpageById(webpageId);
         webpage.setFirstBackground(filename);
         save(webpage);
-
-//        User user = userRepository.findById(userId).orElseThrow();
-//        user.setHomePageId(webpage.getId());
-//        userRepository.save(user);
     }
 
     @Transactional
@@ -80,10 +75,21 @@ public class WebpageService {
         Webpage webpage = findWebpageById(webpageId);
         webpage.setRollingPhoto(filename);
         save(webpage);
+    }
 
-//        User user = userRepository.findById(userId).orElseThrow();
-//        user.setHomePageId(webpage.getId());
-//        userRepository.save(user);
+    public void fillDefaultAndSave(Webpage webpage) {
+        webpage.setFirstBackground(DEFAULT_BACKGROUND);
+        webpage.setRollingPhoto(DEFAULT_ROLLING_BACKGROUND);
+        webpage.setPhotographerPhoto(DEFAULT_PHOTOGRAPH_PHOTO);
 
+        webpage.setIntroductionFirstLayer("Jaki typ fotografii ");
+        webpage.setIntroductionSecondLayer("Przedstaw się");
+
+        webpage.setDescriptionFirstLayer("Opis 1");
+        webpage.setDescriptionSecondLayer("Opis 2");
+        webpage.setDescriptionThirdLayer("Opis 3");
+
+
+        save(webpage);
     }
 }
