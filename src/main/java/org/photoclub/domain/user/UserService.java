@@ -71,7 +71,7 @@ public class UserService {
         user.setFirstName(photographRegistrationDto.getFirstName());
         user.setLastName(photographRegistrationDto.getLastName());
         user.getRoles().add(photographRole);
-        user.setPhotographingType(photographRegistrationDto.getPhotographingType());
+        user.setPhotographingType(PhotoType.fromDescription(photographRegistrationDto.getPhotographingType()));
         user.setLogoHomeFilename(DEFAULT_LOGO_FILENAME);
         user.setMiniatureFilename(DEFAULT_MINIATURE_FILENAME);
 

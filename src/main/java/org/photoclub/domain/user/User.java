@@ -24,8 +24,9 @@ public class User {
     private Long contactPageId;
     private Long portfolioPageId;
     private String portfolioDescription;
-    private String photographingType;
-
+//    private String photographingType;
+    @Enumerated(EnumType.STRING)
+    private PhotoType photographingType;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
@@ -137,11 +138,12 @@ public class User {
     public void setPortfolioDescription(String portfolioDescription) {
         this.portfolioDescription = portfolioDescription;
     }
-    public String getPhotographingType() {
+
+    public PhotoType getPhotographingType() {
         return photographingType;
     }
 
-    public void setPhotographingType(String photographingType) {
+    public void setPhotographingType(PhotoType photographingType) {
         this.photographingType = photographingType;
     }
 

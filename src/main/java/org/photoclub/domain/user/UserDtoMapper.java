@@ -26,7 +26,7 @@ public class UserDtoMapper {
         userFirstPageDto.setFirstName(user.getFirstName());
         userFirstPageDto.setLastName(user.getLastName());
         userFirstPageDto.setMiniatureFilename(user.getMiniatureFilename());
-        userFirstPageDto.setPhotographingType(user.getPhotographingType());
+        userFirstPageDto.setPhotographingType(user.getPhotographingType().getDescription());
         return userFirstPageDto;
     }
 
