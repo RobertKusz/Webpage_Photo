@@ -1,6 +1,8 @@
 package org.photoclub.domain.user;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public enum PhotoType {
     WEDDING("Ślubna"),
@@ -27,6 +29,9 @@ public enum PhotoType {
                 .equalsIgnoreCase(description))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Nie znaleziono typu fotografi: "+description));
+    }
+    public static List<String> allTypes(){
+        return Arrays.stream(PhotoType.values()).map(PhotoType::getDescription).collect(Collectors.toList());
     }
 
 }

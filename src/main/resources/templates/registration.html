@@ -46,8 +46,16 @@
                 <label for="photo-lastName">Nazwisko</label>
                 <input id="photo-lastName" type="text" th:field="*{lastName}" required>
 
-                <label for="photo-type">Rodzaj fotografii</label>
-                <input id="photo-type" type="text" th:field="*{photographingType}" placeholder="np. ślubna, krajobrazowa">
+<!--                <label for="photo-type">Rodzaj fotografii</label>-->
+<!--                <input id="photo-type" type="text" th:field="*{photographingType}" placeholder="np. ślubna, krajobrazowa">-->
+
+                <label for="photo-type">Typ fotografii</label>
+                <select id="photo-type" th:field="*{photographingType}" required>
+                    <option th:each="photoType: ${photoTypes}"
+                            th:text="${photoType}"
+                            th:value="${photoType}">
+                    </option>
+                </select>
 
                 <button type="submit">Zarejestruj się</button>
             </form>

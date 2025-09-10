@@ -1,5 +1,6 @@
 package org.photoclub.web;
 
+import org.photoclub.domain.user.PhotoType;
 import org.photoclub.domain.user.UserService;
 import org.photoclub.domain.user.dto.PhotographRegistrationDto;
 import org.photoclub.domain.user.dto.UserRegistrationDto;
@@ -22,8 +23,11 @@ public class RegistrationController {
     String registrationForm(Model model){
         UserRegistrationDto userDto = new UserRegistrationDto();
         PhotographRegistrationDto photographDto = new PhotographRegistrationDto();
+
         model.addAttribute("user", userDto);
         model.addAttribute("photograph", photographDto);
+        model.addAttribute("photoTypes", PhotoType.allTypes());
+
         return "registration";
     }
 
