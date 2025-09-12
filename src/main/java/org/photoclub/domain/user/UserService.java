@@ -7,10 +7,12 @@ import org.photoclub.domain.webpages.homePage.Webpage;
 import org.photoclub.domain.webpages.homePage.WebpageRepository;
 import org.photoclub.domain.webpages.homePage.WebpageService;
 import org.photoclub.domain.webpages.portfolioPage.Portfolio;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -89,5 +91,19 @@ public class UserService {
 
 
         userRepository.save(user);
+    }
+
+    public List<UserFirstPageDto> findByPhotographingType(String photoType) {
+        if(photoType.equals("Wszystkie")){
+            return userRepository.findAll().stream()
+                    .map(UserDtoMapper::mapToFirstPage)
+                    .toList();
+        }
+
+        return userRepository.findByPhotographingType(PhotoType.fromDescription(photoType))
+                .stream()
+                .map(Optional::orElseThrow)
+                .map(UserDtoMapper::mapToFirstPage)
+                .toList();
     }
 }

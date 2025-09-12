@@ -23,8 +23,21 @@
 </div>
 <div class="main">
     <h1>Wybierz użytkownika</h1>
+    <div class="sorting">
+        <form th:action="@{/first}" method="post">
+            <select id="sort-photo-type" name="photoType">
+                <option th:each="photoType: ${photoTypes}"
+                        th:text="${photoType}"
+                        th:value="${photoType}">
+                </option>
+            </select>
+            <button type="submit">Sortuj</button>
+        </form>
+    </div>
     <div class="user-list">
-        <a href="#" th:href="${photograph.id}" th:each="photograph:${photographs}" class="user-item">
+        <a href="#" th:href="${photograph.id}"
+                    th:each="photograph:${photographs}"
+                    class="user-item">
             <div class="photograph-name" th:text="${photograph.firstName} +' '+${photograph.lastName}">TEST</div>
             <div class="photograph-type" th:text="${photograph.photographingType}">typ</div>
             <div class="image-container">

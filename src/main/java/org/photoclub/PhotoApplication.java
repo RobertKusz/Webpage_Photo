@@ -9,10 +9,10 @@ public class PhotoApplication {
         SpringApplication.run(PhotoApplication.class, args);
     }
 
-    // doddać enumy zamiast typuów sesji
-
     // dodać modyfikacje portfolio
     // dodać modyfikacje aboutMe
     // dodać strone contact
     // dodać modyfikacje contact
+
+    // dodać na pierwszej stronie sortowanie po typach fotografii
 }

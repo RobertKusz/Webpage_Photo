@@ -1,5 +1,6 @@
 package org.photoclub.domain.user;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,4 +35,10 @@ public enum PhotoType {
         return Arrays.stream(PhotoType.values()).map(PhotoType::getDescription).collect(Collectors.toList());
     }
 
+    public static List<String> allTypesWithAllOption() {
+        List<String> types = new ArrayList<>();
+        types.add("Wszystkie");
+        types.addAll(allTypes());
+        return types;
+    }
 }
