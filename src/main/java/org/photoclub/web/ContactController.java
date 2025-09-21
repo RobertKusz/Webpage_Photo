@@ -2,8 +2,6 @@ package org.photoclub.web;
 
 import org.photoclub.domain.user.UserService;
 import org.photoclub.domain.user.dto.UserHomepageDto;
-import org.photoclub.domain.webpages.aboutMePage.AboutMeService;
-import org.photoclub.domain.webpages.aboutMePage.dto.AboutMeDto;
 import org.photoclub.domain.webpages.homePage.WebpageService;
 import org.photoclub.domain.webpages.homePage.dto.WebpageDto;
 import org.springframework.stereotype.Controller;
@@ -12,27 +10,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-public class AboutMeController {
-    private final AboutMeService aboutMeService;
+public class ContactController {
     private final UserService userService;
     private final WebpageService webpageService;
 
-    public AboutMeController(AboutMeService aboutMeService, UserService userService, WebpageService webpageService) {
-        this.aboutMeService = aboutMeService;
+    public ContactController(UserService userService, WebpageService webpageService) {
         this.userService = userService;
         this.webpageService = webpageService;
     }
 
-    @GetMapping("/{id}/o_mnie")
-    String loadAboutMePage(@PathVariable Long id, Model model){
-        AboutMeDto aboutMePageContent = aboutMeService.getAboutMePageContentByUserId(id);
+    @GetMapping("/{id}/kontakt")
+    String getContactPage(@PathVariable Long id, Model model){
         UserHomepageDto userById = userService.findUserHomepageDtoById(id);
         WebpageDto webpage = webpageService.findWebpageDtoById(userById.getWebpageId());
 
         model.addAttribute("webpage", webpage);
-        model.addAttribute("content", aboutMePageContent);
         model.addAttribute("photograph", userById);
 
-        return "about_me";
+        return "contact";
     }
 }

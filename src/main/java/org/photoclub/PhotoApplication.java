@@ -11,8 +11,11 @@ public class PhotoApplication {
 
     // dodać modyfikacje portfolio
     // dodać modyfikacje aboutMe
-    // dodać strone contact
+
+
+    // dodać strone contact - dodać mape googla, film na yt https://www.youtube.com/watch?v=9CY0V0JAgNU
+
+
     // dodać modyfikacje contact
 
-    // dodać na pierwszej stronie sortowanie po typach fotografii
 }
