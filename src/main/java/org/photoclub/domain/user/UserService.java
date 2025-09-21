@@ -95,7 +95,9 @@ public class UserService {
 
     public List<UserFirstPageDto> findByPhotographingType(String photoType) {
         if(photoType.equals("Wszystkie")){
-            return userRepository.findAll().stream()
+            return userRepository.findAll()
+                    .stream()
+                    .filter(s -> s.getPhotographingType() != null)
                     .map(UserDtoMapper::mapToFirstPage)
                     .toList();
         }

@@ -41,6 +41,62 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Sekcja sortowania */
+.sorting {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 25px;
+}
+
+.sorting form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Select */
+.sorting select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9fb;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sorting select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+/* Przycisk */
+.sorting button {
+    padding: 8px 16px;
+    background-color: #e1e5ea;
+    border: none;
+    border-radius: 6px;
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s ease;
+}
+
+.sorting button:hover {
+    background-color: #357abf;
+    transform: translateY(-2px);
+}
+
+.sorting button:active {
+    transform: translateY(0);
+}
+
+
 .user-list {
     display: flex;
     flex-direction: column;

@@ -15,7 +15,7 @@ public enum PhotoType {
     FOOD("Jedzeniowa"),
     PET("Zwierzęca");
 
-    private String description;
+    private final String description;
 
     PhotoType(String description) {
         this.description = description;

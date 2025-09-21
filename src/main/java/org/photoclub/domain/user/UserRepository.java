@@ -11,6 +11,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<Optional<User>> findByRoles_name(String role);
     List<Optional<User>> findByPhotographingType(PhotoType photoType);
     List<User> findAll();
-
-
 }
